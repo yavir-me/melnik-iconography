@@ -1,0 +1,94 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url(normalize.css);
+.row {
+  margin: 0px;
+}
+
+a {
+  cursor: pointer;
+}
+
+.navbar-default {
+  box-shadow: 0px 0px 8px 1px grey;
+}
+
+.language-selector img {
+  max-width: 25px;
+}
+
+.item {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.item img {
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
+}
+
+.panel > .panel-heading {
+  border-color: #4C75A3 !important;
+  background-color: #4C75A3 !important;
+  color: #fff;
+}
+
+.services-row {
+  padding-top: 50px;
+}
+
+.work-kinds table {
+  width: 100%;
+}
+
+.btn-success {
+  background-color: #16BF64;
+  border-bottom: 4px solid #13a858;
+}
+
+.primary {
+  color: #3097D1;
+}
+
+.info {
+  color: #8eb4cb;
+}
+
+.success {
+  color: #2ab27b;
+}
+
+.warning {
+  color: #cbb956;
+}
+
+.danger {
+  color: #bf5329;
+}
+
+.heading-row {
+  background-color: #e8e8e8;
+  max-height: 70px;
+}
+
+.icon img {
+  max-height: 250px;
+}
+
+.footer {
+  min-height: 200px;
+  background-color: #8eb4cb;
+}
+
+.footer div {
+  margin-top: 90px;
+}
+
+.reach-me h3 {
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+  padding: 0;
+  margin: 4px 0 0 0;
+}
+
+/*# sourceMappingURL=styles.css.map */
