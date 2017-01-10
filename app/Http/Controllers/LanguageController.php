@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 class LanguageController extends Controller
 {
-	public function index(Request $request, $locale) {
-		// set application locate
-		app()->setlocale($locale);
+    public function index(Request $request, $locale) {
+        // set application locate
+        app()->setlocale($locale);
 
-		return next($request);
-	}
+        return next($request);
+    }
 }
