@@ -110,7 +110,7 @@
 	@endforeach
 </div> {{-- / gallery row --}}
 
-<div class="row footer">
+<div class="row reach-me">
 	<div class="col-sm-4 col-md-2 col-md-offset-5 reach-me">
 		<h3>Reach me here:</h3>
 	</div>

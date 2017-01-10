@@ -30,7 +30,7 @@ Route::group(['middleware' => ['web', 'visitors']], function(){
 
 	Route::post('/register', 'RegistrationController@postRegister');
 
-	Route::get('/login', 'LoginController@login');
+	Route::get('/{locale}/login', 'LoginController@login');
 
 	Route::post('/login', 'LoginController@postLogin');
 
