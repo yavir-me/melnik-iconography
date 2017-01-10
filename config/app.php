@@ -90,7 +90,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'ru',
 
     /*
     |--------------------------------------------------------------------------
@@ -163,6 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
+        // Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -229,6 +230,7 @@ return [
     'Activation' => Cartalyst\Sentinel\Laravel\Facades\Activation::class,
     'Reminder'   => Cartalyst\Sentinel\Laravel\Facades\Reminder::class,
     'Sentinel'   => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
+    // 'LaravelLocalization'   => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
 
     ],
 

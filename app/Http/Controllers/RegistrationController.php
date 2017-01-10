@@ -16,7 +16,7 @@ class RegistrationController extends Controller
         $this->validate($request, [
             'first_name' => 'required|min:3|max:20',
             'last_name' => 'required|min:3|max:20',
-            'email' => 'required|exists:users,email|unique',
+            'email' => 'required|unique:users,email',
             'password' => 'confirmed|required|min:5|max:10',
             'password_confirmation' => 'required|min:5|max:10'
             ]);
@@ -25,7 +25,7 @@ class RegistrationController extends Controller
         // make record in activations table for current user with 'complete' column in order to check activation status account
         $activation = Activation::create($user);
         // get manager role
-        $role = Sentinel::findRoleBySlug('manager');
+        $role = Sentinel::findRoleBySlug('client');
 
         // attach the role to a user
         $role->users()->attach($user);

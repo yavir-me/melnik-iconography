@@ -11,9 +11,8 @@ class ForgotPasswordController extends Controller
     }
 
     public function postForgotPassword(Request $request) {
-        $user = User::whereEmail($request->email)->first();
 
-        $sentinelUser = Sentinel::findById($user->id);
+        $user = User::whereEmail($request->email)->first();
 
         if (count($user) == 0) {
             // !! even such user there isn't in db
@@ -21,6 +20,9 @@ class ForgotPasswordController extends Controller
                 'success' => 'Reset code was sent to your email.',
                 ]);
         }
+
+        $sentinelUser = Sentinel::findById($user->id);
+
         $reminder = Reminder::exists($sentinelUser) ?: Reminder::create($sentinelUser);
 
         // send email with reset password
