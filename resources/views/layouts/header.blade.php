@@ -81,11 +81,11 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Language<span class="caret"></span></a>
                             <ul class="dropdown-menu language-selector">
-                                <li><a href="#"><img src="img/langs/ukraine.svg"> Укр</a></li>
+                                <li><a href="/ua"><img src="img/langs/ukraine.svg"> Укр</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#"><img src="img/langs/united-states.svg"> US</a></li>
+                                <li><a href="/us"><img src="img/langs/united-states.svg"> US</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="#"><img src="img/langs/russia.svg"> Ru</a></li>
+                                <li><a href="/ru"><img src="img/langs/russia.svg"> Ru</a></li>
                             </ul>
                         </li>
                     </ul>

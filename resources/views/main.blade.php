@@ -5,28 +5,23 @@
         <!-- Indicators -->
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
+            @for($i=1;$i<count($slides);$i++)
+            <li data-target="#myCarousel" data-slide-to="{{$i}}"></li>
+            @endfor
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
+
             <div class="item active">
-                <img src="img/slideshow/1.jpg">
+                <img src="{{$slides[0]->path}}">
             </div>
 
+            @for($i=1;$i<count($slides);$i++)
             <div class="item">
-                <img src="img/slideshow/2.jpg">
+                <img src="{{$slides[$i]->path}}">
             </div>
-
-            <div class="item">
-                <img src="img/slideshow/3.jpg">
-            </div>
-
-            <div class="item">
-                <img src="img/slideshow/4.jpg">
-            </div>
+            @endfor
 
         </div>
 
