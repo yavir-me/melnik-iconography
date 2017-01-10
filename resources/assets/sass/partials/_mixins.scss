@@ -1,70 +1,70 @@
 // media queries mixins
 @mixin tiny-screens(){
-	@media only screen and (max-width: 320px){
-		@content;
-	}
+    @media only screen and (max-width: 320px){
+        @content;
+    }
 }
 
 @mixin small-screens(){
-	@media only screen and (max-width: 480px){
-		@content;
-	}
+    @media only screen and (max-width: 480px){
+        @content;
+    }
 }
 
 @mixin medium-screens(){
-	@media only screen and (max-width: 680px){
-		@content;
-	}
+    @media only screen and (max-width: 680px){
+        @content;
+    }
 }
 
 @mixin large-screens(){
-	@media only screen and (max-width: 960px){
-		@content;
-	}
+    @media only screen and (max-width: 960px){
+        @content;
+    }
 }
 
 // google font mixin
 @mixin google-font($font) {
-	$font: unquote($font);
-	@import url(https://fonts.googleapis.com/css?family=#{$font});
+    $font: unquote($font);
+    @import url(https://fonts.googleapis.com/css?family=#{$font});
 }
 
 @mixin warning {
-	background-color: orange;
+    background-color: orange;
 }
 
 @mixin large-text($size: 18px, $weight: 600) {
-	font{
-		size: $size;
-		weight: $weight;
-	}
+    font{
+        size: $size;
+        weight: $weight;
+    }
 }
 
 @mixin rounded($radius: 6px) {
-	border-radius: $radius;
+    border-radius: $radius;
 }
 
 @mixin box($radius: 6px, $border: 1px solid #000) {
-	@include rounded($radius);
-	border: $border;
+    @include rounded($radius);
+    border: $border;
 }
 
 @mixin fancy-links {
-	a {
-		font-style: italic;
-		text-decoration: none;
-	}
+    a {
+        font-style: italic;
+        text-decoration: none;
+    }
 }
 
 @mixin article-header($size: 22px, $weight: 800) {
-	font {
-		size: $size;
-		weight: $weight
-	}
+    font {
+        size: $size;
+        weight: $weight
+    }
 }
 
 @mixin apply-to-ie-6 {
-	* html {
-		@content;
-	}
+    * html {
+        @content;
+    }
 }
