@@ -15,8 +15,8 @@ class CreateIconsTable extends Migration
     {
         Schema::create('icons', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->text('description');
+            $table->string('name')->nullable();
+            $table->text('description')->nullable();
             $table->integer('icon_category')->default(0);
             $table->string('path');
             $table->boolean('discount')->default(0);
@@ -31,7 +31,7 @@ class CreateIconsTable extends Migration
         {
             $table->increments('id');
             $table->string('name');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->string('path');
             $table->boolean('active')->default(0);
             $table->timestamps();
