@@ -20,5 +20,4 @@ class VisitorsMiddleware
                 return redirect('/');
             }
         }
-
     }

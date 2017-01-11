@@ -15,15 +15,9 @@ class LoginController extends Controller
     public function postLogin(Request $request) {
 
         try {
-        // authenticate user
+            // authenticate user
             if (Sentinel::authenticate($request->all())) {
-        // define slug of the role
-                $slug = Sentinel::getUser()->roles()->first()->slug;
-                if ($slug == 'admin') {
-                    return redirect('/earnings');
-                } else if ($slug == 'manager') {
-                    return redirect()->back();
-                }
+                return redirect('/');
             } else {
                 return redirect()->back()->with(['wrong_credentials' => 'Mail or password is wrong. Check your credentials.']);
             }

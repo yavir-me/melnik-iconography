@@ -1,12 +1,8 @@
-
 // Fonts
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
 
 // Variables
 @import "partials/variables", "partials/mixins";
-
-// Bootstrap
-@import "normalize.css";
 
 .row {
     margin: 0px;
@@ -98,7 +94,14 @@ a {
 
 .reach-me h3 {
     color: #fff;
+    background-color: $info;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
     padding: 0;
     margin: 4px 0 0 0;
 }
+
+// .show {
+//     display: block;
+//     opacity: 1;
+// }
+

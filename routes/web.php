@@ -1,12 +1,5 @@
 <?php
 
-// MANAGERS' GROUP
-Route::group(['middleware' => ['web', 'managers']], function(){
-
-    Route::get('/tasks', 'ManagerController@tasks');
-
-});
-
 // ADMINS' GROUP
 Route::group(['middleware' => ['web', 'admins']], function(){
 
@@ -17,10 +10,6 @@ Route::group(['middleware' => ['web', 'admins']], function(){
 
 // VISITORS' GROUP
 Route::group(['middleware' => ['web', 'visitors']], function(){
-
-    Route::get('/reset/{email}/{resetCode}', 'ForgotPasswordController@resetPassword');
-
-    Route::post('/reset/{email}/{resetCode}', 'ForgotPasswordController@postResetPassword');
 
     Route::get('/forgot-password', 'ForgotPasswordController@forgotPassword');
 
@@ -38,29 +27,25 @@ Route::group(['middleware' => ['web', 'visitors']], function(){
 
 });
 
-
 // CLIENTS' GROUP
 Route::group(['middleware' => ['web', 'clients']], function(){
 
     Route::get('/logout', 'LoginController@logout');
 
 });
-Route::get('/', 'MainController@index');
 
-// Route::group(['prefix' => LaravelLocalization::setLocale()], function()
-// {
-//     /** ADD ALL LOCALIZED ROUTES INSIDE THIS GROUP **/
-//     Route::get('/', function()
-//     {
-//         return View::make('hello');
-//     });
+// WEB GROUP
+Route::group(['middleware' => ['web']], function(){
 
-//     Route::get('test',function(){
-//         return View::make('test');
-//     });
-// });
+    Route::get('/', 'MainController@index');
 
+    Route::post('/make-order', 'OrdersController@makeOrder');
 
+    Route::get('/reset/{email}/{resetCode}', 'ForgotPasswordController@resetPassword');
+
+    Route::post('/reset/{email}/{resetCode}', 'ForgotPasswordController@postResetPassword');
+
+});
 
 // defines the language of the site a client uses
 // Route::get('{locale}', 'LanguageController@index');
