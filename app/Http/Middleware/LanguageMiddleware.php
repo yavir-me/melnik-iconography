@@ -15,7 +15,7 @@ class LanguageMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $path = '/' . /* тут потрібно вставит префікс мови Оо */ '/' . $request->path() . '/';
+        $path = '/' . /* lang prefix goes here */ '/' . $request->path() . '/';
         // check locale for the authenticated user
         if (Sentinel::check()) {
             $user = Sentinel::getUser();

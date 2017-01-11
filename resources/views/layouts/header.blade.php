@@ -14,8 +14,9 @@
     {{-- js files --}}
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    {{-- livereload --}}
+    <script type="text/javascript" src="js/scripts.js"></script>
     @if ( Config::get('app.debug') )
+    {{-- livereload --}}
     <script type="text/javascript">
         document.write('<script src="//localhost:35729/livereload.js?snipver=1" type="text/javascript"><\/script>')
     </script> 
@@ -43,7 +44,7 @@
 
                     <ul class="nav navbar-nav navbar-left">
                         <li role="presentation">
-                            <a href="#">Make order</a>
+                            <a href="#" data-toggle="modal" data-target="#make-order-modal"><i class="fa fa-pencil" aria-hidden="true"></i> Make order</a>
                         </li>
                     </ul>
 
@@ -85,7 +86,7 @@
                                 <li role="separator" class="divider"></li>
                                 <li><a href="/us"><img src="img/langs/united-states.svg"> US</a></li>
                                 <li role="separator" class="divider"></li>
-                                <li><a href="/ru"><img src="img/langs/russia.svg"> Ru</a></li>
+                                <li><a href="/ru"><img src="img/langs/russia.svg"> Рус</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -93,4 +94,68 @@
 
             </div> {{-- /.container-fluid --}}
         </nav>
+        {{-- gratitude block for made order --}}
+        <div class="alert alert-warning order-gratitude-block alert-dismissible hide" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Thank you for the order!</strong> I'll contact you soon.
+        </div>
+
     </div>
+
+    <!-- Order modal -->
+    <div class="modal fade" id="make-order-modal" tabindex="-1" role="dialog" aria-labelledby="order-label">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center" id="order-label">Order details</h4>
+            </div>
+
+            <div class="modal-body">
+                <form action="/make-order" method="POST" class="form-horizontal" id="make-order-form">
+                    {{csrf_field()}}
+
+                    <div class="form-group" id="order-full-name">
+                        <label for="full-name" class="col-sm-2 control-label">Full Name<span class="danger">*</span></label>
+                        <div class="col-sm-10">
+                          <input type="text" name="full-name" class="form-control" id="full-name" placeholder="Full Name" required>
+                          <strong class="danger" id="order-errors-full-name"></strong></span>
+                      </div>
+                  </div>
+
+                  <div class="form-group" id="order-email">
+                    <label for="email" class="col-sm-2 control-label">Email<span class="danger">*</span></label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+                      <strong class="danger" id="order-errors-email"></strong></span>
+                  </div>
+              </div>
+
+              <div class="form-group" id="order-phone">
+                <label for="phone" class="col-sm-2 control-label">Phone<span class="danger">*</span></label>
+                <div class="col-sm-10">
+                  <input type="tel" class="form-control" name="phone" id="phone" placeholder="Phone" required>
+                  <strong class="danger" id="order-errors-phone"></strong></span>
+              </div>
+          </div>
+
+          <div class="form-group" id="order-comment">
+              <label for="comment" class="col-sm-2 control-label">Comment</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" id="comment" name="comment" rows="4" placeholder="Comment"></textarea>
+                <strong class="danger" id="order-errors-comment"></strong></span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-success">Make order</button>
+    </div>
+</form>
+
+</div>
+</div>
+</div>
