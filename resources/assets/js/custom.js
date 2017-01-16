@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+    // initializeing fancybox
+    $(".fancybox").fancybox();
+
     // initializing bootstrap popover
     $('[data-toggle="popover"]').popover();
 

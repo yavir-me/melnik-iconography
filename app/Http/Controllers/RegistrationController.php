@@ -46,4 +46,5 @@ class RegistrationController extends Controller
                 $message->subject("Hello, $user->first_name! Please activate your account at M-Arts.");
             });
     }
+
 }

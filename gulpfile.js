@@ -16,7 +16,8 @@ require('laravel-elixir-vue-2');
  elixir(mix => {
  	mix.sass('styles.scss')
  	.scripts([
- 		'custom.js'
+ 		'custom.js',
+ 		'jquery.fancybox.pack.js'
  		], 'public/js/scripts.js')
  	.livereload()
  });

@@ -94,15 +94,21 @@
     @foreach($icons as $icon)
     <div class="col-sm-12 col-md-6 col-lg-4 icon">
         <div class="thumbnail">
-            <img src="{{!empty($icon->path) ? $icon->path : 'Icon title goes here'}}">
+            <a href="{{$icon->path}}" class="fancybox" rel="group"><img src="{{!empty($icon->path) ? $icon->path : 'Icon title goes here'}}"></a>
             <div class="caption">
                 <h3>{{!empty($icon->name) ? $icon->name : 'Icon name'}}</h3>
                 <p>{{!empty($icon->description) ? $icon->description : 'Some description goes here'}}</p>
-                <p><a href="#" class="btn btn-primary" role="button">View</a></p>
+                {{-- facebook like button --}}
+                <div
+                class="fb-like pull-right"
+                data-width="100"
+                data-show-faces="true">
             </div>
+            <p><a href="#" class="btn btn-primary" role="button">View</a></p>
         </div>
     </div>
-    @endforeach
+</div>
+@endforeach
 </div> {{-- / gallery row --}}
 
 <div class="row reach-me">

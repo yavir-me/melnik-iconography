@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request, DB;
+use Illuminate\Http\Request, DB, Auth;
 
 class MainController extends Controller
 {

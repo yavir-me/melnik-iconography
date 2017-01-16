@@ -1,4 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url(jquery.fancybox.css);
+a:focus, a:hover {
+  outline: none;
+}
+
 .row {
   margin: 0px;
 }
@@ -50,23 +55,38 @@ a {
 }
 
 .primary {
-  color: #3097D1;
+  color: #3097D1 !important;
 }
 
 .info {
-  color: #8eb4cb;
+  color: #8eb4cb !important;
 }
 
 .success {
-  color: #2ab27b;
+  color: #2ab27b !important;
 }
 
 .warning {
-  color: #cbb956;
+  color: #cbb956 !important;
 }
 
 .danger {
-  color: #bf5329;
+  color: #bf5329 !important;
+}
+
+.facebook-btn {
+  background-color: #3B5998 !important;
+  color: #fff;
+}
+
+.google-btn {
+  background-color: #DB4437 !important;
+  color: #fff;
+}
+
+.twitter-btn {
+  background-color: #1DA1F2 !important;
+  color: #fff;
 }
 
 .heading-row {

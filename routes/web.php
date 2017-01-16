@@ -47,5 +47,10 @@ Route::group(['middleware' => ['web']], function(){
 
 });
 
+// OAuth authentication
+Route::get('auth/facebook', 'Auth\RegisterController@redirectToProvider');
+Route::get('auth/facebook/callback', 'Auth\RegisterController@handleProviderCallback');
+
+
 // defines the language of the site a client uses
 // Route::get('{locale}', 'LanguageController@index');

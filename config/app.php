@@ -163,8 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
-        // Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider::class,
-
+        Laravel\Socialite\SocialiteServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -176,7 +175,7 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
@@ -230,6 +229,7 @@ return [
     'Activation' => Cartalyst\Sentinel\Laravel\Facades\Activation::class,
     'Reminder'   => Cartalyst\Sentinel\Laravel\Facades\Reminder::class,
     'Sentinel'   => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
+    'Socialite' => Laravel\Socialite\Facades\Socialite::class,
     // 'LaravelLocalization'   => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
 
     ],

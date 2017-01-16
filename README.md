@@ -1,5 +1,13 @@
 # install via composer 
+
+# for unix-based operating systems
 curl -sS https://getcomposer.org/installer | php
+mv composer.phar /usr/local/bin/composer
+
+# for windows instalation you can just go by the next reference. All the needed information you could fine there:
+# https://getcomposer.org/doc/00-intro.md#installation-windows
+
+# after installation execute the next command:
 php composer install
 
 # retrieve configuration file from example
@@ -11,7 +19,7 @@ mv .env.example .env
 php artisan key:generate
 
 # run migrations and make seeding
-php artisan migrate:refresh
+php artisan migrate
 php artisan db:seed
 
 # Virtual hosts
@@ -24,4 +32,4 @@ php artisan db:seed
 # Adding host to the hosts file
 127.0.0.1 adriitest.dev
 
-# mail and db configurations lie in .env file in directory root
+# mail and db configurations lies in .env file in directory root
