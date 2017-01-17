@@ -2,16 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request, App\User, Reminder, Mail, Sentinel;
+use Illuminate\Http\Request;
+use App\User;
+use Reminder;
+use Mail;
+use Sentinel;
 
 class ForgotPasswordController extends Controller
 {
-    public function forgotPassword() {
+    public function forgotPassword()
+    {
         return view('authentication.forgot-password');
     }
 
-    public function postForgotPassword(Request $request) {
-
+    public function postForgotPassword(Request $request)
+    {
         $user = User::whereEmail($request->email)->first();
 
         if (count($user) == 0) {
@@ -33,18 +38,19 @@ class ForgotPasswordController extends Controller
             ]);
     }
 
-    private function sendEmail($user, $code){
+    private function sendEmail($user, $code)
+    {
         Mail::send('emails.forgot-password', [
             'user' => $user,
             'code' => $code
-            ], function($message) use ($user){
+            ], function ($message) use ($user) {
                 $message->to($user->email);
                 $message->subject("Dear $user->first_name, reset your password");
             });
     }
 
-    public function resetPassword($email, $resetCode) {
-
+    public function resetPassword($email, $resetCode)
+    {
         $user = User::byEmail($email);
         $sentinelUser = Sentinel::findById($user->id);
 
@@ -61,10 +67,10 @@ class ForgotPasswordController extends Controller
         } else {
             return redirect('/');
         }
-
     }
 
-    public function postResetPassword(Request $request, $email, $resetCode) {
+    public function postResetPassword(Request $request, $email, $resetCode)
+    {
 
         //validation
         $this->validate($request, [
@@ -89,7 +95,5 @@ class ForgotPasswordController extends Controller
         } else {
             return redirect('/');
         }
-
     }
-
 }

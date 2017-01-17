@@ -107,9 +107,14 @@ a {
   margin-top: 90px;
 }
 
+.reach-me {
+  background-color: #8eb4cb;
+  min-height: 150px;
+  padding-top: 50px;
+}
+
 .reach-me h3 {
   color: #fff;
-  background-color: #8eb4cb;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
   padding: 0;
   margin: 4px 0 0 0;

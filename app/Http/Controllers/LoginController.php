@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request, Sentinel;
+use Illuminate\Http\Request;
+use Sentinel;
 use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
 use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
 
 class LoginController extends Controller
 {
-    public function login() {
+    public function login()
+    {
         return view('authentication.login');
     }
 
-    public function postLogin(Request $request) {
-
+    public function postLogin(Request $request)
+    {
         try {
             // authenticate user
             if (Sentinel::authenticate($request->all())) {
@@ -27,10 +29,10 @@ class LoginController extends Controller
         } catch (NotActivatedException $e) {
             return redirect()->back()->with(['wrong_credentials' => 'Your account is not activated']);
         }
-
     }
 
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         Sentinel::logout();
         return redirect('/login');
     }

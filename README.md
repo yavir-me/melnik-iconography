@@ -32,4 +32,7 @@ php artisan db:seed
 # Adding host to the hosts file
 127.0.0.1 adriitest.dev
 
+# Change .env file's string in order to set the right URI in the emails
+APP_URL=http://your.domain
+
 # mail and db configurations lies in .env file in directory root

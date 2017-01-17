@@ -112,10 +112,10 @@
 </div> {{-- / gallery row --}}
 
 <div class="row reach-me">
-    <div class="col-sm-4 col-md-2 col-md-offset-5 reach-me">
+    <div class="col-sm-4 col-md-3 col-md-offset-4">
         <h3>Reach me here:</h3>
     </div>
-    <div class="col-sm-8 col-md-4">
+    <div class="col-sm-8 col-md-5">
         <form action="/reach-me" method="POST"><input type="email" name="email" class="form-control" placeholder="Your email address"></form>
     </div>
 </div>

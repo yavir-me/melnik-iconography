@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request, DB, Auth;
+use Illuminate\Http\Request;
+use DB;
+use Auth;
 
 class MainController extends Controller
 {
-
-  public function index() {
+    public function index(Request $request)
+    {
 
     // get the last icons
     $icons = DB::table('icons')->select('*')->orderBy('created_at', 'desc')->limit(12)->get();
@@ -15,7 +17,9 @@ class MainController extends Controller
     // get slides for the slideshow
     $slides = DB::table('slideshow')->select('*')->get();
 
-    return view('main')->with(['icons' => $icons, 'slides' => $slides]);
+    $data['icons'] = $icons;
+    $data['slides'] = $slides;
 
-  }
+        return view('main', $data);
+    }
 }

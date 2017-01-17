@@ -2,15 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request, Sentinel, Activation, App\User, Mail;
+use Illuminate\Http\Request;
+use Sentinel;
+use Activation;
+use App\User;
+use Mail;
 
 class RegistrationController extends Controller
 {
-    public function register() {
+    public function register()
+    {
         return view('authentication.register');
     }
 
-    public function postRegister(Request $request) {
+    public function postRegister(Request $request)
+    {
 
         // validation
         $this->validate($request, [
@@ -36,15 +42,15 @@ class RegistrationController extends Controller
         return redirect('/');
     }
 
-    private function sendEmail($user, $code){
+    private function sendEmail($user, $code)
+    {
         Mail::send('emails.activation', [
             'user' => $user,
             'code' => $code
-            ], function($message) use ($user){
+            ], function ($message) use ($user) {
                 $message->to($user->email);
 
                 $message->subject("Hello, $user->first_name! Please activate your account at M-Arts.");
             });
     }
-
 }

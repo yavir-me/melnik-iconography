@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request, DB;
+use Illuminate\Http\Request;
+use DB;
 
 class OrdersController extends Controller
 {
-  public function makeOrder(Request $request) {
+    public function makeOrder(Request $request)
+    {
 
     // validation
     $this->validate($request, [
@@ -16,12 +18,11 @@ class OrdersController extends Controller
       'comment' => 'min:5|max:1000'
       ]);
 
-    DB::table('orders')->insert([
+        DB::table('orders')->insert([
         'client' => $request->input('full-name'),
         'email' => $request->input('email'),
         'phone' => $request->input('phone'),
         'comment' => $request->input('comment'),
         ]);
-
-}
+    }
 }

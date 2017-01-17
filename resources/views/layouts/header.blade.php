@@ -178,4 +178,3 @@
 </div>
 </div>
 </div>
-{{-- {{dd(Sentinel::getUser())}} --}}

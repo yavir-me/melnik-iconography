@@ -7,7 +7,6 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Socialite;
-use Illuminate\Http\Request;
 use Auth;
 use App\SocialProvider;
 
@@ -73,57 +72,52 @@ class RegisterController extends Controller
             ]);
     }
 
-    public function redirectToProvider()
-    {
-        return Socialite::driver('facebook')->redirect();
-    }
+    public function redirectToProvider() {
+        return Socialite::driver('facebook')->redirect(); }
 
     /**
      * Obtain the user information from facebook.
      *
      * @return Response
      */
-    public function handleProviderCallback(Request $request)
-    {
-      try {
-
-        $social_user = Socialite::with('facebook')->user();
-
-    } catch (Exception $e) {
-        return redirect('/');
-    }
+    public function handleProviderCallback(){
+        try {
+            $social_user = Socialite::with('facebook')->user();
+        } catch (Exception $e) {
+            return redirect('/');
+        }
 
         // if we have logged provider
-    $social_provider = SocialProvider::where('provider_id', $social_user->getId())->first();
+        $social_provider = SocialProvider::where('provider_id', $social_user->getId())->first();
 
-    if (!$social_provider) {
-        // retrieve user's full name
-        $full_name = explode(' ', $social_user->getName());
-        $user_name = $full_name[0];
-        $user_surname = $full_name[1];
+        if (!$social_provider) {
+            // retrieve user's full name
+            $full_name = explode(' ', $social_user->getName());
+            $user_name = $full_name[0];
+            $user_surname = $full_name[1];
 
-        $credentials = [
-        'email' => $social_user->getEmail(),
-        'first_name' => $user_name,
-        'last_name' => $user_surname
-        ];
+            $credentials = [
+            'email' => $social_user->getEmail(),
+            'first_name' => $user_name,
+            'last_name' => $user_surname
+            ];
 
         // create a new user and provider
-        $user = Sentinel::authenticate($credentials);
-        if (!$user) {
-            $user = Sentinel::register($credentials);
-            $activation = Activation::create($user);
-            Sentinel::authenticate($credentials);
-        }
+            $user = Sentinel::authenticate($credentials);
+            if (!$user) {
+                $user = Sentinel::register($credentials);
+            // activate user
+            // Activation::create($user);
+                Sentinel::authenticate($credentials);
+            }
         // create social provider
-        $user->socialProviders()->create(
-            ['provider_id' => $social_user->getId(), 'provider' => 'facebook']
-            );
-    } else {
-        $user = $social_provider->user;
+            $user->socialProviders()->create(
+                ['provider_id' => $social_user->getId(), 'provider' => 'facebook']
+                );
+        } else {
+            $user = $social_provider->user;
+        }
+
+        return redirect('/');
     }
-
-    return redirect('/');
-
-}
 }
