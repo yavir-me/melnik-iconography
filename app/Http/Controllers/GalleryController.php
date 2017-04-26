@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Gallery;
+use App\Icon;
 
 class GalleryController extends Controller
 {
@@ -19,13 +20,10 @@ class GalleryController extends Controller
 
     }
 
-    public function icon($id)
+    public function showIcon($gallery, $id)
     {
-
-        $icon = Gallery::getIcon($id);
-
+        $icon = Icon::find($id);
         return view('icon', compact('icon'));
-
     }
 
     public function getGalleries()

@@ -18,6 +18,8 @@ class CreateGalleriesTable extends Migration
             $table->string('name');
             $table->string('path');
             $table->unsignedInteger('lang_id');
+            $table->string('meta_keywords');
+            $table->string('meta_description');
             $table->timestamps();
         });
 

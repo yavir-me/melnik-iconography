@@ -14,23 +14,23 @@
 
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<script>
+  <script>
 
     window.Laravel = {!! json_encode([
-        'csrfToken' => csrf_token()
-    ]) !!};
+      'csrfToken' => csrf_token()
+      ]) !!};
 
-</script>
+  </script>
 
 
 </head>
 
 <body>
 
-<div class="container">
+  <div class="container">
 
-  <div id="app">
+    <div id="app">
 
-    <nav-component></nav-component>
+      <nav-component></nav-component>
 
-    <order-modal></order-modal>
+      <order-modal></order-modal>

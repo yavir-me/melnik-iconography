@@ -28,7 +28,7 @@ a {
 
 #app {
     @include rice-pattern;
-    border: 1px solid darken(grey, 5%);
+    border: 1px solid lighten(grey, 20%);
     box-shadow: 0px 2px 11px 1px grey;
 }
 
@@ -167,8 +167,8 @@ nav .dropdown-menu>li>a {
 }
 
 
-.gallery-header {
-    margin: 50px auto;
+.gallery-header, .icon-header {
+    margin: 85px auto 35px;
     @include header-highlights();
 }
 
@@ -353,6 +353,7 @@ footer div {
 
 .gallery-block ul>li>a:hover, .contact-block ul>li>a:hover {
     color: $google;
+    text-decoration: none;
     transition: color .1s;
 }
 
@@ -433,6 +434,28 @@ footer div {
     border-radius: 2px;
     margin: 0 15px 15px 15px;
 }
+
+// === ICON PAGE ===
+
+.icon-row {
+    margin-bottom: 30px;
+}
+
+.icon-row > div {
+    // border: 2px solid orange;
+}
+
+.icon-holder {
+    text-align: center;
+}
+
+.desc-holder {
+font-family: Roboto;
+    font-size: 16px;
+    color: #525252;
+}
+
+
 
 
 footer {

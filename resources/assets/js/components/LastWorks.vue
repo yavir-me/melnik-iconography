@@ -8,7 +8,7 @@
 
             <div class="thumbnail">
 
-                <a :href="icon.path" data-fancybox="gallery" ><img :src="icon.path"></a>
+                <a :href="icon.path" :data-caption="icon.title" data-fancybox="gallery" ><img :src="icon.path"></a>
 
                 <div class="caption">
 

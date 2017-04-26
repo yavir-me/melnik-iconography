@@ -40,6 +40,12 @@
     }
 }
 
+@mixin content-typing($size: 16px) {
+    font-family: "Roboto";
+    font-size: $size;
+    color: $secondary-font;
+}
+
 @mixin rounded($radius: 6px) {
     border-radius: $radius;
 }

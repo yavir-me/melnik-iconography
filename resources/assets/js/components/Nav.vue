@@ -72,21 +72,21 @@
 
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <img src="img/langs/ukraine.svg">
+                <img :src="countryFlags.ua">
                 <span class="caret"></span>
               </a>
 
               <ul class="dropdown-menu language-selector">
                 <li>
-                  <a href="#"><img src="img/langs/ukraine.svg"></a>
+                  <a href="#"><img :src="countryFlags.ua"></a>
                 </li>
                 <li role="separator" class="divider"></li>
                 <li>
-                  <a href="/us"><img src="img/langs/united-states.svg"></a>
+                  <a href="/us"><img :src="countryFlags.us"></a>
                 </li>
                 <li role="separator" class="divider"></li>
                 <li>
-                  <a href="/ru"><img src="img/langs/russia.svg"></a>
+                  <a href="/ru"><img :src="countryFlags.ru"></a>
                 </li>
               </ul>
             </li>
@@ -111,7 +111,12 @@
   export default  {
 
     data: () => ({
-      galleries: []
+      galleries: [],
+      countryFlags: {
+        ua: '/img/langs/ukraine.svg',
+        ru: '/img/langs/russia.svg',
+        us: '/img/langs/united-states.svg'
+      }
     }),
 
     beforeCreate() {

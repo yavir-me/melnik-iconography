@@ -21,6 +21,8 @@
             $table->unsignedInteger('gallery_id');
             $table->string('path');
             $table->boolean('available');
+            $table->string('meta_keywords');
+            $table->string('meta_description');
             $table->timestamps();
 
             $table->engine = 'InnoDB';

@@ -15,7 +15,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/gallery/{path}', 'GalleryController@gallery');
 
-    Route::get('/gallery/icon/{id}', 'GalleryController@icon');
+    Route::get('/gallery/{path}/{id}', 'GalleryController@showIcon');
 
     // AJAX requests
 

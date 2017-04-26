@@ -2,13 +2,13 @@
 
     <div class="row last-works-row">
 
-        <h1 class="text-center gallery-header"> {{ gallery[0].name }} </h1>
+        <h1 class="text-center gallery-header"> {{ gallery.name }} </h1>
 
-        <div class="col-sm-12 col-md-3 col-lg-3 icon" v-for="icon in gallery[0].icons">
+        <div class="col-sm-12 col-md-3 col-lg-3 icon" v-for="icon in gallery.icons">
 
             <div class="thumbnail">
 
-                <a :href="icon.path" data-fancybox="gallery" ><img :src="'/' + icon.path"></a>
+                <a :href="'/' + icon.path" :data-caption="icon.title" data-fancybox="gallery" ><img :src="'/' + icon.path"></a>
 
                 <div class="caption">
 
@@ -18,7 +18,7 @@
 
                         <div class="cols-sm-12 col-md-6 pull-left">
 
-                            <a :href="'/icon/' + icon.id"> {{ $t('home.view') }} </a>
+                            <a :href="`/gallery/${gallery.path}/${icon.id}`"> {{ $t('home.view') }} </a>
 
                         </div>
 
@@ -49,11 +49,7 @@
         ],
 
         data: () => ({
-        }),
-
-        mounted() {
-            console.log(this.gallery[0].name);
-        }
+        })
 
     }
 

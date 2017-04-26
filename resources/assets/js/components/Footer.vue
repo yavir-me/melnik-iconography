@@ -26,20 +26,8 @@
           </div>
           <div class="panel-body">
             <ul>
-              <li>
-                <a href="#">{{ $t('footer.wedding_icons') }}</a>
-              </li>
-              <li>
-                <a href="#">{{ $t('footer.jesus_icons') }}</a>
-              </li>
-              <li>
-                <a href="#">{{ $t('footer.theotokos_icons') }}</a>
-              </li>
-              <li>
-                <a href="#">{{ $t('footer.nominal_icons') }}</a>
-              </li>
-              <li>
-                <a href="#">{{ $t('footer.measured_icons') }}</a>
+              <li v-for="gallery in galleries">
+                <a :href="`/gallery/` + gallery.path">{{ gallery.name }}</a>
               </li>
             </ul>
           </div>
@@ -90,5 +78,17 @@
 
 <script>
   export default {
+
+    data: () => ({
+      galleries: [],
+    }),
+
+    beforeCreate() {
+      axios.get('/get-galleries')
+      .then(galleries => {
+        this.galleries = galleries.data;
+      });
+    }
+
   }
 </script>

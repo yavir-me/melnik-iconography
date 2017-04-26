@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
 
-<gallery-component :gallery="{{ $gallery }}"></gallery-component>
+<gallery-component :gallery="{{ $gallery[0] }}"></gallery-component>
 
 @stop

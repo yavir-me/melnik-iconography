@@ -10,6 +10,7 @@ import Contacts from './components/Contacts.vue';
 import Shipping from './components/Shipping.vue';
 import OrderModal from './components/OrderModal.vue';
 import Gallery from './components/Gallery.vue';
+import Icon from './components/Icon.vue';
 
 
 // Registering components
@@ -22,14 +23,9 @@ Vue.component('contacts-component', Contacts);
 Vue.component('shipping-component', Shipping);
 Vue.component('footer-component', Footer);
 Vue.component('gallery-component', Gallery);
+Vue.component('icon-component', Icon);
 
 
 new Vue({
-
     el: '#app',
-
-    data: {
-        coffee: 'espresso'
-    }
-
 });
