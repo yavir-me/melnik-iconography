@@ -2,30 +2,26 @@
 
 namespace App\Http\Middleware;
 
-use Closure, Illuminate\Http\Request, Sentinel, App\User, Auth;
+use Closure;
+use Illuminate\Http\Request;
+use App\User;
+use Auth;
+use Session;
 
 class LanguageMiddleware
 {
-    /**
-     * Handle an incoming request.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @return mixed
-     */
+
+    protected $langs = ['en', 'ru', 'ua'];
+
     public function handle($request, Closure $next)
     {
-        $path = '/' . /* lang prefix goes here */ '/' . $request->path() . '/';
-        // check locale for the authenticated user
-        if (Sentinel::check()) {
-            $user = Sentinel::getUser();
-            $localization = $user->localization ? $user->localization : app()->getlocale();
-        } else {
-        // check if the client has defined locale statement
-            if (!session()->has('locale')) {
-                session()->put('locale', app()->getlocale());
-            }
+
+        if(!Session::has('locale'))
+        {
+            Session::put('locale', $request->getPreferredLanguage($this->langs));
         }
+
+        app()->setLocale(Session::get('locale'));
 
         return $next($request);
     }

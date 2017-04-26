@@ -1,20 +1,31 @@
+import './bootstrap.js';
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * include Vue and Vue Resource. This gives a great starting point for
- * building robust, powerful web applications using Vue and Laravel.
- */
+// Components importing
+import Nav from './components/Nav.vue';
+import QuickOrderModal from './components/QuickOrderModal.vue';
+import LastWorks from './components/LastWorks.vue';
+import Footer from './components/Footer.vue';
+import About from './components/About.vue';
+import Contacts from './components/Contacts.vue';
+import Shipping from './components/Shipping.vue';
+import OrderModal from './components/OrderModal.vue';
+import Gallery from './components/Gallery.vue';
+import Icon from './components/Icon.vue';
 
-require('./bootstrap');
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the body of the page. From here, you may begin adding components to
- * the application, or feel free to tweak this setup for your needs.
- */
+// Registering components
+Vue.component('nav-component', Nav);
+Vue.component('quick-order-modal', QuickOrderModal);
+Vue.component('last-works-component', LastWorks);
+Vue.component('order-modal', OrderModal);
+Vue.component('about-component', About);
+Vue.component('contacts-component', Contacts);
+Vue.component('shipping-component', Shipping);
+Vue.component('footer-component', Footer);
+Vue.component('gallery-component', Gallery);
+Vue.component('icon-component', Icon);
 
-Vue.component('example', require('./components/Example.vue'));
 
-const app = new Vue({
-    el: '#app'
+new Vue({
+    el: '#app',
 });

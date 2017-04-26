@@ -1,19 +1,40 @@
 {
+  "name": "MArts",
+  "description": "Melnik arts production",
+  "version": "1.0.0",
+  "author": "z0uR <andrey.furman.sup.acc@gmail.com>",
   "private": true,
   "scripts": {
-    "prod": "gulp --production",
-    "dev": "gulp watch"
+    "dev": "npm run compile -- --watch",
+    "compile": "cross-env NODE_ENV=development webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "cross-env NODE_ENV=production webpack --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "artisan-config-clear": "php artisan config:clear",
+    "clear-lang": "php artisan vendor:publish --provider=\"MartinLindhe\\VueInternationalizationGenerator\\GeneratorProvider\"",
+    "generate-lang-file": "php artisan vue-i18n:generate",
+    "update-lang": "npm run artisan-config-clear & npm run clear-lang & npm run generate-lang-file"
+  },
+  "dependencies": {
+    "axios": "^0.15.3",
+    "gulp": "^3.9.1",
+    "vue": "^2.2.1",
+    "vue-i18n": "^5.0.3"
   },
   "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-preset-latest": "^6.0.0",
+    "bootstrap": "^3.3.7",
     "bootstrap-sass": "^3.3.7",
-    "gulp": "^3.9.1",
+    "cross-env": "^3.0.0",
+    "css-loader": "^0.25.0",
+    "file-loader": "^0.9.0",
     "jquery": "^3.1.0",
-    "laravel-elixir": "^6.0.0-9",
-    "laravel-elixir-livereload": "^1.1.6",
-    "laravel-elixir-vue-2": "^0.2.0",
-    "laravel-elixir-webpack-official": "^1.0.2",
-    "lodash": "^4.16.2",
-    "vue": "^2.0.1",
-    "vue-resource": "^1.0.3"
+    "node-sass": "^4.5.0",
+    "sass-loader": "^5.0.1",
+    "vue-loader": "^11.1.4",
+    "vue-template-compiler": "^2.2.1",
+    "webpack": "^2.2.0",
+    "webpack-dev-server": "^2.2.0",
+    "webpack-livereload-plugin": "^0.10.0"
   }
 }

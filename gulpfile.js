@@ -14,9 +14,15 @@ require('laravel-elixir-vue-2');
  */
 
  elixir(mix => {
- 	mix.sass('styles.scss')
- 	.scripts([
- 		'custom.js'
- 		], 'public/js/scripts.js')
- 	.livereload()
+    mix.sass([
+        './node_modules/bootstrap/dist/css/bootstrap.min.css',
+        'app.scss'
+        ], 'public/css/')
+    .scripts([
+        './node_modules/jquery/dist/jquery.min.js',
+        './node_modules/bootstrap/dist/js/bootstrap.min.js',
+        'jssor.slider-22.2.16.min.js',
+        'app.js'
+        ], 'public/js/app.js')
+    .rollup('app.js')
  });

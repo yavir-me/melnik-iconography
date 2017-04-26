@@ -27,7 +27,11 @@ class User extends Authenticatable
     'password', 'remember_token',
     ];
 
-    public static function byEmail($email) {
-      return static::whereEmail($email)->first();
+    function socialProviders() {
+        return $this->hasMany(SocialProvider::class);
     }
+
+    public static function byEmail($email) {
+        return static::whereEmail($email)->first();
   }
+}

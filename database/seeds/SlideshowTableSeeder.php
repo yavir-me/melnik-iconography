@@ -13,23 +13,27 @@ class SlideshowTableSeeder extends Seeder
     {
 
         DB::table('slideshow')->insert([
-            'name' => 'Objects painiting',
+            'title' => 'Objects painiting',
             'path' => 'img/slideshow/1.jpg',
+            'lang_id' => 1
             ]);
 
         DB::table('slideshow')->insert([
-            'name' => 'Piece of soul',
+            'title' => 'Piece of soul',
             'path' => 'img/slideshow/2.jpg',
+            'lang_id' => 1
             ]);
 
         DB::table('slideshow')->insert([
-            'name' => 'I\'m on the way',
+            'title' => 'I\'m on the way',
             'path' => 'img/slideshow/3.jpg',
+            'lang_id' => 1
             ]);
 
         DB::table('slideshow')->insert([
-            'name' => 'Quality materials',
+            'title' => 'Quality materials',
             'path' => 'img/slideshow/4.jpg',
+            'lang_id' => 1
             ]);
 
     }

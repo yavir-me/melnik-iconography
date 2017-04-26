@@ -6,6 +6,10 @@ use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Auth;
+use Mail;
+use App\Mail\RegistractionActivation;
 
 class RegisterController extends Controller
 {
@@ -48,10 +52,20 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'name' => 'required|max:60',
+            'email' => 'required|email|max:60|unique:users',
             'password' => 'required|min:6|confirmed',
-        ]);
+            ]);
+    }
+
+    /**
+    * Display register form page
+    *
+    * @return register view
+    */
+    public function index()
+    {
+        return view('authentication.register');
     }
 
     /**
@@ -65,7 +79,29 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+            'password' => bcrypt($data['password'])
+            ]);
+    }
+
+    /**
+    * Make users registration
+    *
+    * @param array $request
+    */
+    public function register(Request $request)
+    {
+        // validation
+        $this->validate($request, [
+            'name' => 'required|min:3|max:30',
+            'password' => 'required|min:6|max:40',
+            'email' => 'required|email|min:6|max:50'
+            ]);
+
+        // add new user to a db
+       $user = $this->create($request->all());
+
+        Mail::to($user->email)->send(new RegistractionActivation($user));
+
+        return back()->with('activationStatus', 'Please confirm your email address.');
     }
 }
