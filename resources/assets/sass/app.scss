@@ -1,0 +1,440 @@
+@import "partials/variables";
+@import "partials/mixins";
+
+body {
+    font-family: 'Roboto';
+}
+
+h1, h2, h3 {
+    font-family: 'BulgariaModerna';
+}
+
+
+a:focus, a:hover {
+    outline: none;
+}
+
+a {
+    cursor: pointer;
+}
+
+.container {
+    padding: 0;
+}
+
+.row {
+    padding: 0 15px;
+}
+
+#app {
+    @include rice-pattern;
+    border: 1px solid darken(grey, 5%);
+    box-shadow: 0px 2px 11px 1px grey;
+}
+
+.navbar-default {
+    background: $google;
+    border: none;
+}
+
+.navbar-nav {
+    font-family: 'BulgariaModerna';
+    font-size: 20px;
+}
+
+.navbar-nav .dropdown-menu {
+    background: $google;
+}
+
+nav .dropdown-menu>li>a {
+    color: white;
+    font-size: 16px;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    background-color: darken($google, 30%);
+}
+
+.navbar-default .badge {
+    background-color: $info;
+    font-size: 16px;
+    vertical-align: top;
+}
+
+.navbar-nav>li>a {
+    color: white!important;
+}
+
+.carousel-inner>.item>a>img, .carousel-inner>.item>img {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.make-order-ul>li>a {
+    text-shadow: 0 0 5px $card-back;
+}
+
+.slider-row {
+    margin-top: 25px;
+}
+
+.input-group-addon {
+    min-width: 40px;
+}
+
+.language-selector img {
+    max-width: 25px;
+}
+
+.item {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.item img {
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
+.services-row {
+    padding-top: 50px;
+}
+
+.work-kinds table {
+    width: 100%;
+}
+
+.btn-success {
+    background-color: $gold;
+    border: 1px solid darken($gold, 5%);
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.btn-success:hover {
+    text-shadow: none;
+    background-color: darken($gold, 5%);
+    border: 1px solid darken($gold, 10%);
+    transition: border-bottom, background-color, text-shadow .2s;
+}
+
+.btn-default {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+    background: darken($google, 10%);
+    border: 1px solid darken($google, 15%);
+    color: white;
+}
+
+.btn-default:hover {
+    color: white;
+    text-shadow: none;
+    background-color: darken($google, 15%);
+    border: 1px solid darken($google, 20%);
+    transition: border-bottom, background-color, text-shadow .2s;
+}
+
+.thumbnail {
+    background: white;
+    @include warm-pattern;
+    padding: 0px;
+    border: 1px solid #c3c3c3;
+    box-shadow: 0px 2px 11px 1px grey;
+    transition: box-shadow .1s;
+}
+
+.thumbnail:hover {
+    box-shadow: none;
+}
+
+.caption {
+    background: $card-back;
+    min-height: 100px;
+    padding: 0px!important;
+    position: relative;
+}
+
+.caption h3 {
+    margin: 0px;
+    padding-top: 8px;
+}
+
+.works-header {
+    padding-top: 10px;
+    margin: 0;
+    min-height: 60px;
+    @include header-highlights();
+}
+
+
+.gallery-header {
+    margin: 50px auto;
+    @include header-highlights();
+}
+
+
+// basic colors
+
+.primary {
+    color: $primary!important;
+}
+
+.info {
+    color: $info!important;
+}
+
+.success{
+    color: $success!important;
+}
+
+.warning{
+    color: $warning!important;
+}
+
+.danger{
+    color: $danger!important;
+}
+
+// social colors
+
+.facebook-btn {
+  background-color: $facebook!important;
+  color: #fff;
+}
+
+.google-btn {
+  background-color: $google!important;
+  color: #fff;
+}
+
+.twitter-btn {
+  background-color: $twitter!important;
+  color: #fff;
+}
+
+.heading-row {
+    background-color: $bg-color;
+    max-height: 70px;
+}
+
+.icon img {
+    max-height: 250px;
+}
+
+
+
+footer {
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+    min-height: 270px;
+    background-color: $info;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+footer div {
+    margin-top: 90px;
+}
+
+.reach-me {
+    min-height: 150px;
+    padding-top: 50px;
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
+    margin: 0;
+}
+.reach-me h3 {
+    margin: 0;
+}
+
+.register-block, .login-block {
+    margin-top: 100px;
+}
+
+.dropdown-menu {
+    padding: 0;
+}
+
+.dropdown-menu>li>a {
+    text-align: center;
+}
+
+.dropdown-menu .divider {
+    margin: 0px;
+}
+
+.navbar-nav>li {
+    text-align: center;
+}
+
+.nav>li:last-child img {
+    width: 20px;
+}
+
+.nav .caret {
+    // position: absolute;
+}
+
+.language-selector {
+    min-width: 70px;
+}
+
+.carousel-control {
+    background: transparent!important;
+}
+
+.item-actions {
+    border-top: 1px solid darken($card-back, 20%);
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.item-actions>div>a {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    font-size: 16px;
+    color: white;
+    margin-top: 2px;
+    text-shadow: 0px 2px 3px grey;
+}
+
+.item-actions>div>a:hover {
+    text-shadow: none;
+    transition: text-shadow .1s;
+    text-decoration: none;
+}
+
+.item-actions>div {
+    align-items: stretch;
+    height: 40px;
+    padding-top: 6px;
+}
+
+footer div {
+    margin-top: 0;
+}
+
+.footer .panel-heading {
+    background-color:rgba(0, 0, 0, 0.5);
+    border: none;
+    font-size: 22px;
+    border-bottom: 2px solid lighten($google, 20%);
+    color: $google;
+}
+
+.footer .panel {
+    font-family: 'BulgariaModerna';
+    border: none;
+    background-color:rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 20px;
+    box-shadow: none;
+}
+
+.footer .panel-body {
+    min-height: 200px;
+}
+
+.gallery-block ul, .contact-block ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.gallery-block ul>li>a, .contact-block ul>li>a {
+    color: white;
+}
+
+.gallery-block ul>li>a:hover, .contact-block ul>li>a:hover {
+    color: $google;
+    transition: color .1s;
+}
+
+.gallery-block ul {
+    padding: 0;
+    text-align: left;
+    display: inline-block;
+    line-height: 30px;
+}
+
+.contact-block ul {
+    display: inline-flex;
+    padding: 0;
+}
+
+.contact-block ul>li {
+    padding: 10px;
+}
+
+.contact-block ul .fa:hover {
+    color: $google;
+}
+
+.author-row {
+    color: lighten($delimiter-color, 20%);
+    font-size: 12px;
+}
+
+.author-row a:hover {
+    transition: color, text-decoration .1s;
+    color: $google;
+}
+
+.modal-header {
+    border-bottom: 1px solid darken($google, 20%);
+}
+
+.modal-footer {
+    border-top: 1px solid darken($google, 20%);
+}
+
+.modal-header, .modal-footer {
+    background: $google;
+}
+
+.modal-body {
+    @include modal-pattern;
+}
+
+.modal-body label {
+    color: white;
+    text-shadow: 0 0 4px black;
+}
+
+.modal-title {
+    font-size: 24px;
+    color: white;
+    font-family: 'BulgariaModerna';
+}
+
+
+// === ABOUT PAGE ===
+
+.about-row, .contacts-row {
+    margin-top: 50px;
+    font-size: 18px;
+    color: $secondary-font;
+    margin-bottom: 20px;
+}
+
+.author-content img {
+    border: 3px solid #f1eddc;
+    box-shadow: 0 0 5px grey;
+    max-width: 300px;
+    height: auto;
+    float: left;
+    padding: 5px;
+    border-radius: 2px;
+    margin: 0 15px 15px 15px;
+}
+
+
+footer {
+    background-image: url('img/patterns/footer-bg2.jpg');
+}

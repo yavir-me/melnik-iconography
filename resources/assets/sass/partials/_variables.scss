@@ -8,13 +8,18 @@ $navbar-default-border: $laravel-border-color;
 $panel-default-border: $laravel-border-color;
 $panel-inner-border: $laravel-border-color;
 
+
 $red: #FB503B;
 $blue: #4C75A3;
 $green: #16BF64;
+$delimiter-color: #e8e8e8;
+$card-back: #F7D189;
+$gold: #e4b833;
+$secondary-font: #60605F;
 
 // Main 
 $primary: #3097D1;
-$info: #8eb4cb;
+$info: #36dec7;
 $success: #2ab27b;
 $warning: #cbb956;
 $danger:  #bf5329;
@@ -25,7 +30,23 @@ $twitter: #1DA1F2;
 $google: #DB4437;
 
 // Typography
-$font-family-sans-serif: "Raleway", sans-serif;
+@font-face {
+    font-family: "BulgariaModerna";
+    src: url("/fonts/bulgaria_moderna/BulgariaModerna.eot");
+    src: url("/fonts/bulgaria_moderna/BulgariaModerna.eot?") format("eot"),
+         url("/fonts/bulgaria_moderna/BulgariaModerna.woff2") format("woff2"),
+         url("/fonts/bulgaria_moderna/BulgariaModerna.ttf") format("truetype"),
+         url("/fonts/bulgaria_moderna/BulgariaModerna.otf") format("otf");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url("/fonts/roboto/Roboto-Regular.eot?") format("eot"),
+         url("/fonts/roboto/Roboto-Regular.woff2") format("woff2"),
+         url("/fonts/roboto/Roboto-Regular.ttf") format("truetype"),
+         url("/fonts/roboto/Roboto-Regular.otf") format("otf");
+}
+
 $font-size-base: 14px;
 $line-height-base: 1.6;
 $text-color: #636b6f;

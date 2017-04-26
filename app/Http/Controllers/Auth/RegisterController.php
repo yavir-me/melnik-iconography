@@ -6,9 +6,10 @@ use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Socialite;
+use Illuminate\Http\Request;
 use Auth;
-use App\SocialProvider;
+use Mail;
+use App\Mail\RegistractionActivation;
 
 class RegisterController extends Controller
 {
@@ -30,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -51,10 +52,20 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'name' => 'required|max:60',
+            'email' => 'required|email|max:60|unique:users',
             'password' => 'required|min:6|confirmed',
             ]);
+    }
+
+    /**
+    * Display register form page
+    *
+    * @return register view
+    */
+    public function index()
+    {
+        return view('authentication.register');
     }
 
     /**
@@ -68,56 +79,29 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+            'password' => bcrypt($data['password'])
             ]);
     }
 
-    public function redirectToProvider() {
-        return Socialite::driver('facebook')->redirect(); }
-
     /**
-     * Obtain the user information from facebook.
-     *
-     * @return Response
-     */
-    public function handleProviderCallback(){
-        try {
-            $social_user = Socialite::with('facebook')->user();
-        } catch (Exception $e) {
-            return redirect('/');
-        }
+    * Make users registration
+    *
+    * @param array $request
+    */
+    public function register(Request $request)
+    {
+        // validation
+        $this->validate($request, [
+            'name' => 'required|min:3|max:30',
+            'password' => 'required|min:6|max:40',
+            'email' => 'required|email|min:6|max:50'
+            ]);
 
-        // if we have logged provider
-        $social_provider = SocialProvider::where('provider_id', $social_user->getId())->first();
+        // add new user to a db
+       $user = $this->create($request->all());
 
-        if (!$social_provider) {
-            // retrieve user's full name
-            $full_name = explode(' ', $social_user->getName());
-            $user_name = $full_name[0];
-            $user_surname = $full_name[1];
+        Mail::to($user->email)->send(new RegistractionActivation($user));
 
-            $credentials = [
-            'email' => $social_user->getEmail(),
-            'first_name' => $user_name,
-            'last_name' => $user_surname
-            ];
-
-        // create a new user and provider
-            $user = Sentinel::authenticate($credentials);
-            if (!$user) {
-                $user = Sentinel::register($credentials);
-            // activate user
-            // Activation::create($user);
-                Sentinel::authenticate($credentials);
-            }
-        // create social provider
-            $user->socialProviders()->create(
-                ['provider_id' => $social_user->getId(), 'provider' => 'facebook']
-                );
-        } else {
-            $user = $social_provider->user;
-        }
-
-        return redirect('/');
+        return back()->with('activationStatus', 'Please confirm your email address.');
     }
 }

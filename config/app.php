@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'ru',
 
     /*
     |--------------------------------------------------------------------------
@@ -90,7 +90,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'ru',
+    'fallback_locale' => 'ua',
 
     /*
     |--------------------------------------------------------------------------
@@ -162,8 +162,8 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        MartinLindhe\VueInternationalizationGenerator\GeneratorProvider::class,
         /*
          * Package Service Providers...
          */
@@ -226,11 +226,7 @@ return [
     'URL' => Illuminate\Support\Facades\URL::class,
     'Validator' => Illuminate\Support\Facades\Validator::class,
     'View' => Illuminate\Support\Facades\View::class,
-    'Activation' => Cartalyst\Sentinel\Laravel\Facades\Activation::class,
-    'Reminder'   => Cartalyst\Sentinel\Laravel\Facades\Reminder::class,
-    'Sentinel'   => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
     'Socialite' => Laravel\Socialite\Facades\Socialite::class,
-    // 'LaravelLocalization'   => Mcamara\LaravelLocalization\Facades\LaravelLocalization::class,
 
     ],
 

@@ -49,6 +49,27 @@
     border: $border;
 }
 
+@mixin header-highlights {
+    text-shadow: 0px 0px 2px grey;
+    color: $google;
+}
+
+@mixin warm-pattern {
+    background-image: url('img/patterns/swirl_pattern.png');
+}
+
+@mixin rice-pattern {
+        background-image: url('img/patterns/ricepaper_v3.png');
+}
+
+@mixin modal-pattern {
+        background-image: url('/../img/patterns/gold_brush2.jpg');
+}
+
+@mixin footer-pattern {
+        background-image: url('/../img/patterns/footer-pattern3.jpg');
+}
+
 @mixin fancy-links {
     a {
         font-style: italic;
