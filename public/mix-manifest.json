@@ -1,0 +1,8 @@
+{
+  "/js/app.js": "/js/app.js",
+  "/../resources/assets/sass/bundle/app.css": "/../resources/assets/sass/bundle/app.css",
+  "/css/vendor.css": "/css/vendor.css",
+  "resources/assets/sass/bundle/app.scss": "resources/assets/sass/bundle/app.scss",
+  "/css/app.css": "/css/app.css",
+  "/js/vendor.js": "/js/vendor.js"
+}
