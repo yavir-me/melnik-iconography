@@ -8,6 +8,26 @@ export default {
             "failed": "These credentials do not match our records.",
             "throttle": "Too many login attempts. Please try again in {seconds} seconds."
         },
+        "checkout": {
+            "basket": "Basket",
+            "contract_price": "Contract price",
+            "empty_cart": "The cart is empty",
+            "total_amount": "Total amount:",
+            "buyer_information": "Buyer information",
+            "name": "Name",
+            "format": "Format",
+            "price": "Price",
+            "action": "Action",
+            "phone": "Phone",
+            "email": "Email",
+            "comments": "Comments",
+            "com_details": "(If you have any details about your order, please write them here)",
+            "delivery_method": "Delivery method",
+            "make_order": "Make order",
+            "order_title": "Thank you for order!",
+            "order_text": "Our manager will contact you soon.",
+            "confirmButtonText": "Ок"
+        },
         "contacts": {
             "header": "Contacts",
             "main-content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim pretium ullamcorper. Fusce felis diam, porta non ultricies in, tempor ac odio. Vivamus rutrum magna id libero placerat lobortis. Ut ultrices lacinia tincidunt. Pellentesque sed mi eu orci malesuada molestie quis et elit. Pellentesque sapien velit, ultrices quis enim et, consectetur porttitor tellus. Praesent porta eget nunc sit amet dignissim. Nulla rhoncus ac massa et congue. Nam ut sem ante. In faucibus bibendum turpis, eget faucibus nulla eleifend sit amet. Praesent consequat nisl a sapien facilisis, eu condimentum tellus eleifend. Morbi vitae diam ex. Phasellus id porta turpis.\n\nEtiam dictum nulla lectus, a interdum urna porta eu. Maecenas mollis ultricies justo, non eleifend lorem vulputate eget. Aenean a mattis augue. Donec odio turpis, maximus a arcu ultricies, condimentum placerat felis. Pellentesque ac libero non est ultrices aliquet nec quis elit. Aliquam bibendum viverra sollicitudin. Nunc dignissim dui in sodales volutpat. Phasellus posuere molestie turpis sit amet aliquet. Mauris egestas rutrum orci, eu maximus libero interdum vel. Sed id libero commodo justo varius suscipit in ac dolor. Phasellus et risus mi. Cras urna neque, suscipit non cursus vel, vestibulum at leo. Cras tristique tortor vitae rhoncus vestibulum. Phasellus tempus vel massa vel ornare. Maecenas commodo auctor erat egestas iaculis.\n\nDuis finibus ex mi. Aenean diam magna, auctor nec sem vel, sagittis volutpat nibh. Curabitur vel quam pellentesque, vulputate dolor ultricies, finibus mauris. Pellentesque sollicitudin bibendum ipsum, id convallis risus condimentum ut. Aliquam odio eros, mattis ac vestibulum id, egestas et eros. Sed semper, orci eu placerat suscipit, neque enim accumsan ipsum, eget lacinia justo purus in lectus. Etiam blandit turpis eu sapien tempor ornare. Quisque a varius ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut pulvinar mi, eget venenatis neque. Morbi scelerisque pellentesque diam. Aliquam congue sollicitudin lectus, mattis interdum velit euismod eu.pull-left"
@@ -31,6 +51,19 @@ export default {
             "view": "View",
             "quick-order": "Quick Order"
         },
+        "icon": {
+            "currency": "uah",
+            "cart_button": "To cart",
+            "a3_format": "A3 (297 x 420 mm)",
+            "a4_format": "A4 (210 x 297 mm)",
+            "a5_format": "A5 (148 x 210 mm)",
+            "sizes_notification": "You should select one of the sizes option",
+            "custom_size": "Custom size",
+            "size_selection": "Select a size of the icon",
+            "to_cart": "To Cart",
+            "added": "Added",
+            "textarea_placeholder": "Specify your details here"
+        },
         "language": {
             "message": "This is some English text here ..."
         },
@@ -49,7 +82,8 @@ export default {
             "personal_account": "Personal Account",
             "contacts": "Contacts",
             "payment_delivery": "Payment & delivery",
-            "cart": "Cart"
+            "cart": "Cart",
+            "checkout": "Ckeck out"
         },
         "pagination": {
             "previous": "&laquo; Previous",

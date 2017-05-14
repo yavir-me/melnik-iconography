@@ -29,7 +29,9 @@ class HomeController extends Controller
 
     public function lastIcons()
     {
-        return Icon::latest()->limit(12)->get();
+        return Icon::with(array('gallery' => function($query) {
+            $query->select('id', 'path');
+        }))->latest()->limit(12)->get();
     }
 
 }

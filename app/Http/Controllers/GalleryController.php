@@ -22,8 +22,16 @@ class GalleryController extends Controller
 
     public function showIcon($gallery, $id)
     {
-        $icon = Icon::find($id);
-        return view('icon', compact('icon'));
+        $icon = Icon::with(array('gallery' => function($query) {
+            $query->select('id', 'path');
+        }))->find($id);
+        $formats = [
+        'a3' => $icon->a3,
+        'a4' => $icon->a4,
+        'a5' => $icon->a5
+        ];
+
+        return view('icon', compact('icon', 'formats'));
     }
 
     public function getGalleries()

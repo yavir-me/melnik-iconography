@@ -16,15 +16,9 @@
 
                     <div class="item-actions">
 
-                        <div class="cols-sm-12 col-md-6 pull-left">
+                        <div class="cols-sm-12">
 
-                            <a :href="'/icon/' + icon.id"> {{ $t('home.view') }} </a>
-
-                        </div>
-
-                        <div class="cols-sm-12 col-md-6 pull-right">
-
-                            <a href="#" data-toggle="modal" data-target="#quick-order-modal"> {{ $t('home.quick-order') }} </a>
+                            <a :href="`/gallery/${icon.gallery.path}/${icon.id}`"> {{ $t('home.view') }} </a>
 
                         </div>
 

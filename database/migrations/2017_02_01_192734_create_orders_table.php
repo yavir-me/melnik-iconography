@@ -15,11 +15,13 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->string('client');
+            $table->string('order_id');
+            $table->string('name');
             $table->string('phone');
             $table->string('email');
-            $table->text('details');
+            $table->integer('icon_id');
+            $table->string('format');
+            $table->text('comments');
             $table->timestamps();
 
             $table->engine = 'InnoDB';

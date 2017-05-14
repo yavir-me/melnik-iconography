@@ -1,4 +1,5 @@
 <?php
+
 return [
     'make_order' => 'Make order',
     'gallery' => 'Gallery',
@@ -6,5 +7,6 @@ return [
     'personal_account' => 'Personal Account',
     'contacts' => 'Contacts',
     'payment_delivery' => 'Payment & delivery',
-    'cart' => 'Cart'
+    'cart' => 'Cart',
+    'checkout' => 'Ckeck out',
 ];

@@ -17,7 +17,9 @@
     "axios": "^0.15.3",
     "gulp": "^3.9.1",
     "vue": "^2.2.1",
-    "vue-i18n": "^5.0.3"
+    "vue-cookie": "^1.1.4",
+    "vue-i18n": "^5.0.3",
+    "vue-sweetalert": "^0.1.17"
   },
   "devDependencies": {
     "babel-core": "^6.0.0",

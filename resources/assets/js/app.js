@@ -11,6 +11,9 @@ import Shipping from './components/Shipping.vue';
 import OrderModal from './components/OrderModal.vue';
 import Gallery from './components/Gallery.vue';
 import Icon from './components/Icon.vue';
+import Cart from './components/Cart.vue';
+import Checkout from './components/Checkout.vue';
+import CartPopover from './components/CartPopover.vue';
 
 
 // Registering components
@@ -24,8 +27,27 @@ Vue.component('shipping-component', Shipping);
 Vue.component('footer-component', Footer);
 Vue.component('gallery-component', Gallery);
 Vue.component('icon-component', Icon);
+Vue.component('cart-component', Cart);
+Vue.component('checkout-component', Checkout);
+Vue.component('cart-popover', CartPopover);
 
 
 new Vue({
+
     el: '#app',
+
+    data: () => ({
+      items: []
+  }),
+
+    computed: {
+      total() {
+        var total = 0;
+        for(var i = 0; i < this.items.length; i++) {
+          total += this.items[i].price;
+      }
+      return total;
+  }
+}
+
 });

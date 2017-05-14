@@ -12,7 +12,7 @@
         </div>
 
         <div class="col-sm-8 col-md-5">
-          <form action="/reach-me" method="POST"><input type="email" name="email" class="form-control" placeholder="Your email address"></form>
+          <form @submit.prevent action="/reach-me" method="POST"><input type="email" name="email" class="form-control" placeholder="Your email address"></form>
         </div>
 
       </div>

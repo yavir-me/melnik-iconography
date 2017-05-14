@@ -5,8 +5,6 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', 'HomeController@index');
 
-    Route::post('/make-order', 'OrdersController@makeOrder');
-
     Route::get('/about', 'AboutController@index');
 
     Route::get('/contacts', 'ContactsController@index');
@@ -17,10 +15,16 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/gallery/{path}/{id}', 'GalleryController@showIcon');
 
+    // Route::get('/cart', 'HomeController@cart');
+
+    Route::get('/checkout', 'CheckoutController@index');
+
     // AJAX requests
 
     Route::get('/get-last-icons', 'HomeController@lastIcons');
 
     Route::get('/get-galleries', 'GalleryController@getGalleries');
+
+    Route::post('/make-order', 'OrdersController@makeOrder');
 
 });

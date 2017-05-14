@@ -3,6 +3,7 @@
 
 body {
     font-family: 'Roboto';
+    padding: 0!important;
 }
 
 h1, h2, h3 {
@@ -23,18 +24,25 @@ a {
 }
 
 .row {
-    padding: 0 15px;
+    margin: 0;
 }
 
 #app {
     @include rice-pattern;
-    border: 1px solid lighten(grey, 20%);
     box-shadow: 0px 2px 11px 1px grey;
 }
 
 .navbar-default {
     background: $google;
     border: none;
+}
+
+.navbar-brand {
+    padding: 5px 15px;
+}
+
+.navbar-brand > img {
+    max-height: 42px;
 }
 
 .navbar-nav {
@@ -63,6 +71,81 @@ nav .dropdown-menu>li>a {
 
 .navbar-nav>li>a {
     color: white!important;
+}
+
+.cart-thumbnail {
+    max-height: 70px;
+}
+
+.nav .popover {
+    width: 250px;
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+        color: white;
+    }
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background: white;
+}
+
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background: transparent;
+}
+
+.cart-block .img-thumbnail {
+    max-width: none;
+}
+
+.navbar-toggle {
+    margin-right: 40px;
+}
+
+.remove-cart-item {
+    cursor: pointer;
+}
+
+.remove-cart-item:hover {
+    color: $google;
+}
+
+.checkout-btn {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+
+.cart-block {
+    background: white;
+    padding: 0 5px 5px 5px;
+    border-radius: 2px;
+    position: absolute;
+    min-width: 300px;
+    right: 0;
+}
+
+.order-table {
+    background: white;
+    // font-family: 'BulgariaModerna';
+}
+
+.total-amount>p>strong {
+    font-size: 20px;
+}
+
+.order-comment-notif {
+    font-size: 14px;
+    color: darken($delimiter-color, 50%);
+}
+
+.popover.bottom {
+    margin: 0;
+}
+
+.popover-content {
+    padding: 0;
 }
 
 .carousel-inner>.item>a>img, .carousel-inner>.item>img {
@@ -112,12 +195,15 @@ nav .dropdown-menu>li>a {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
 }
 
-.btn-success:hover {
-    text-shadow: none;
-    background-color: darken($gold, 5%);
-    border: 1px solid darken($gold, 10%);
-    transition: border-bottom, background-color, text-shadow .2s;
+.btn-success:hover, .btn-success:focus, .btn-success:active {
+    background-color: darken($gold, 10%)!important;
+    border: 1px solid darken($gold, 15%)!important;
 }
+
+.btn-info {
+    background-color: $info;
+}
+
 
 .btn-default {
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
@@ -164,6 +250,10 @@ nav .dropdown-menu>li>a {
     margin: 0;
     min-height: 60px;
     @include header-highlights();
+}
+
+.secondary-header {
+
 }
 
 
@@ -417,7 +507,7 @@ footer div {
 
 // === ABOUT PAGE ===
 
-.about-row, .contacts-row {
+.about-row, .contacts-row, .checkout-row {
     margin-top: 50px;
     font-size: 18px;
     color: $secondary-font;
@@ -448,7 +538,7 @@ footer div {
     text-align: center;
 }
 
-.icon-holder > img {
+.icon-holder img {
     max-width: 450px;
     height: auto;
 }
@@ -475,8 +565,24 @@ footer div {
     display: block;
 }
 
+.format-options > label > input {
+    visibility: hidden;
+}
+
 .format-options > textarea {
     margin-bottom: 20px;
+}
+
+body {
+  padding: 50px;
+}
+
+.tool-tip {
+  display: inline-block;
+}
+
+.tool-tip [disabled] {
+  pointer-events: none;
 }
 
 footer {

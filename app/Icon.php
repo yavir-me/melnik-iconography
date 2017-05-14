@@ -8,7 +8,7 @@ use DB;
 class Icon extends Model
 {
 
-    public function Gallery()
+    public function gallery()
     {
         return $this->belongsTo(Gallery::class);
     }

@@ -22,12 +22,12 @@ class CreateForeignKeys extends Migration
             $table->engine = 'InnoDB';
         });
 
-        Schema::table('orders', function ($table) {
-            $table->foreign('user_id')
-            ->references('id')->on('users')
-            ->onUpdate('cascade')
-            ->onDelete('cascade');
-        });
+        // Schema::table('orders', function ($table) {
+        //     $table->foreign('user_id')
+        //     ->references('id')->on('users')
+        //     ->onUpdate('cascade')
+        //     ->onDelete('cascade');
+        // });
 
         Schema::table('slideshow', function ($table)
         {
