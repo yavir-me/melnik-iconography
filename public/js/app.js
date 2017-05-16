@@ -376,23 +376,7 @@ Vue.component('cart-popover', __WEBPACK_IMPORTED_MODULE_13__components_CartPopov
 
 new Vue({
 
-  el: '#app',
-
-  data: function data() {
-    return {
-      items: []
-    };
-  },
-
-  computed: {
-    total: function total() {
-      var total = 0;
-      for (var i = 0; i < this.items.length; i++) {
-        total += this.items[i].price;
-      }
-      return total;
-    }
-  }
+    el: '#app'
 
 });
 
@@ -1290,18 +1274,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             countryFlags: {
                 ua: '/img/langs/ukraine.svg',
                 ru: '/img/langs/russia.svg',
-                us: '/img/langs/united-states.svg'
+                en: '/img/langs/united-states.svg'
             },
             cartObj: new Cart(),
             cart: {},
             cartCounter: 0,
             cartContent: null,
-            showPopover: false
+            showPopover: false,
+            curLang: ''
         };
     },
 
     mounted: function mounted() {
         var _this = this;
+
+        this.defineLang();
 
         axios.get('/get-galleries').then(function (galleries) {
             _this.galleries = galleries.data;
@@ -1312,6 +1299,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
+        defineLang: function defineLang() {
+            var lang = this.$cookie.get('lang');
+
+            if (lang) {
+                Vue.config.lang = lang;
+                this.curLang = lang;
+            } else {
+                Vue.config.lang = 'ru';
+                this.curLang = 'ru';
+            }
+        },
+        changeLang: function changeLang(e) {
+            console.log(e);
+            var lang = e.getAttribute('lang');
+            this.curLang = lang;
+            Vue.config.lang = lang;
+            this.$cookie.set('lang', lang);
+        },
         updateCartCounter: function updateCartCounter() {
             var cart = JSON.parse(this.$cookie.get('cart'));
             this.cartContent = cart;
@@ -2185,8 +2190,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = 
             "delivery_method": "Delivery method",
             "make_order": "Make order",
             "order_title": "Thank you for order!",
-            "order_text": "Our manager will contact you soon.",
-            "confirmButtonText": "Ок"
+            "order_text": "Our manager will contact you soon."
         },
         "contacts": {
             "header": "Contacts",
@@ -2361,7 +2365,94 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = 
         "language": {
             "message": "Немного русского текста здесь"
         },
-        "navigation": []
+        "navigation": {
+            "make_order": "Сделать заказ",
+            "gallery": "Галереи",
+            "about": "Про автора",
+            "personal_account": "Личный кабинет",
+            "contacts": "Контакты",
+            "payment_delivery": "Оплата и доставка",
+            "cart": "Корзина",
+            "checkout": "Оформить заказ"
+        },
+        "validation": {
+            "accepted": "The {attribute} must be accepted.",
+            "active_url": "The {attribute} is not a valid URL.",
+            "after": "The {attribute} must be a date after {date}.",
+            "alpha": "The {attribute} may only contain letters.",
+            "alpha_dash": "The {attribute} may only contain letters, numbers, and dashes.",
+            "alpha_num": "The {attribute} may only contain letters and numbers.",
+            "array": "The {attribute} must be an array.",
+            "before": "The {attribute} must be a date before {date}.",
+            "between": {
+                "numeric": "The {attribute} must be between {min} and {max}.",
+                "file": "The {attribute} must be between {min} and {max} kilobytes.",
+                "string": "The {attribute} must be between {min} and {max} characters.",
+                "array": "The {attribute} must have between {min} and {max} items."
+            },
+            "boolean": "The {attribute} field must be true or false.",
+            "confirmed": "The {attribute} confirmation does not match.",
+            "date": "The {attribute} is not a valid date.",
+            "date_format": "The {attribute} does not match the format {format}.",
+            "different": "The {attribute} and {other} must be different.",
+            "digits": "The {attribute} must be {digits} digits.",
+            "digits_between": "The {attribute} must be between {min} and {max} digits.",
+            "dimensions": "The {attribute} has invalid image dimensions.",
+            "distinct": "The {attribute} field has a duplicate value.",
+            "email": "The {attribute} must be a valid email address.",
+            "exists": "The selected {attribute} is invalid.",
+            "file": "The {attribute} must be a file.",
+            "filled": "The {attribute} field is required.",
+            "image": "The {attribute} must be an image.",
+            "in": "The selected {attribute} is invalid.",
+            "in_array": "The {attribute} field does not exist in {other}.",
+            "integer": "The {attribute} must be an integer.",
+            "ip": "The {attribute} must be a valid IP address.",
+            "json": "The {attribute} must be a valid JSON string.",
+            "max": {
+                "numeric": "The {attribute} may not be greater than {max}.",
+                "file": "The {attribute} may not be greater than {max} kilobytes.",
+                "string": "The {attribute} may not be greater than {max} characters.",
+                "array": "The {attribute} may not have more than {max} items."
+            },
+            "mimes": "The {attribute} must be a file of type: {values}.",
+            "mimetypes": "The {attribute} must be a file of type: {values}.",
+            "min": {
+                "numeric": "The {attribute} must be at least {min}.",
+                "file": "The {attribute} must be at least {min} kilobytes.",
+                "string": "The {attribute} must be at least {min} characters.",
+                "array": "The {attribute} must have at least {min} items."
+            },
+            "not_in": "The selected {attribute} is invalid.",
+            "numeric": "The {attribute} must be a number.",
+            "present": "The {attribute} field must be present.",
+            "regex": "The {attribute} format is invalid.",
+            "required": "The {attribute} field is required.",
+            "required_if": "The {attribute} field is required when {other} is {value}.",
+            "required_unless": "The {attribute} field is required unless {other} is in {values}.",
+            "required_with": "The {attribute} field is required when {values} is present.",
+            "required_with_all": "The {attribute} field is required when {values} is present.",
+            "required_without": "The {attribute} field is required when {values} is not present.",
+            "required_without_all": "The {attribute} field is required when none of {values} are present.",
+            "same": "The {attribute} and {other} must match.",
+            "size": {
+                "numeric": "The {attribute} must be {size}.",
+                "file": "The {attribute} must be {size} kilobytes.",
+                "string": "The {attribute} must be {size} characters.",
+                "array": "The {attribute} must contain {size} items."
+            },
+            "string": "The {attribute} must be a string.",
+            "timezone": "The {attribute} must be a valid zone.",
+            "unique": "The {attribute} has already been taken.",
+            "uploaded": "The {attribute} failed to upload.",
+            "url": "The {attribute} format is invalid.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            },
+            "attributes": []
+        }
     },
     "ua": {
         "auth": {
@@ -2374,6 +2465,84 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;var _typeof = 
             "about": "Про 55 мене",
             "personal_account": "Особистий Кабінет",
             "contacts": "Контакти"
+        },
+        "validation": {
+            "accepted": "The {attribute} must be accepted.",
+            "active_url": "The {attribute} is not a valid URL.",
+            "after": "The {attribute} must be a date after {date}.",
+            "alpha": "The {attribute} may only contain letters.",
+            "alpha_dash": "The {attribute} may only contain letters, numbers, and dashes.",
+            "alpha_num": "The {attribute} may only contain letters and numbers.",
+            "array": "The {attribute} must be an array.",
+            "before": "The {attribute} must be a date before {date}.",
+            "between": {
+                "numeric": "The {attribute} must be between {min} and {max}.",
+                "file": "The {attribute} must be between {min} and {max} kilobytes.",
+                "string": "The {attribute} must be between {min} and {max} characters.",
+                "array": "The {attribute} must have between {min} and {max} items."
+            },
+            "boolean": "The {attribute} field must be true or false.",
+            "confirmed": "The {attribute} confirmation does not match.",
+            "date": "The {attribute} is not a valid date.",
+            "date_format": "The {attribute} does not match the format {format}.",
+            "different": "The {attribute} and {other} must be different.",
+            "digits": "The {attribute} must be {digits} digits.",
+            "digits_between": "The {attribute} must be between {min} and {max} digits.",
+            "dimensions": "The {attribute} has invalid image dimensions.",
+            "distinct": "The {attribute} field has a duplicate value.",
+            "email": "The {attribute} must be a valid email address.",
+            "exists": "The selected {attribute} is invalid.",
+            "file": "The {attribute} must be a file.",
+            "filled": "The {attribute} field is required.",
+            "image": "The {attribute} must be an image.",
+            "in": "The selected {attribute} is invalid.",
+            "in_array": "The {attribute} field does not exist in {other}.",
+            "integer": "The {attribute} must be an integer.",
+            "ip": "The {attribute} must be a valid IP address.",
+            "json": "The {attribute} must be a valid JSON string.",
+            "max": {
+                "numeric": "The {attribute} may not be greater than {max}.",
+                "file": "The {attribute} may not be greater than {max} kilobytes.",
+                "string": "The {attribute} may not be greater than {max} characters.",
+                "array": "The {attribute} may not have more than {max} items."
+            },
+            "mimes": "The {attribute} must be a file of type: {values}.",
+            "mimetypes": "The {attribute} must be a file of type: {values}.",
+            "min": {
+                "numeric": "The {attribute} must be at least {min}.",
+                "file": "The {attribute} must be at least {min} kilobytes.",
+                "string": "The {attribute} must be at least {min} characters.",
+                "array": "The {attribute} must have at least {min} items."
+            },
+            "not_in": "The selected {attribute} is invalid.",
+            "numeric": "The {attribute} must be a number.",
+            "present": "The {attribute} field must be present.",
+            "regex": "The {attribute} format is invalid.",
+            "required": "The {attribute} field is required.",
+            "required_if": "The {attribute} field is required when {other} is {value}.",
+            "required_unless": "The {attribute} field is required unless {other} is in {values}.",
+            "required_with": "The {attribute} field is required when {values} is present.",
+            "required_with_all": "The {attribute} field is required when {values} is present.",
+            "required_without": "The {attribute} field is required when {values} is not present.",
+            "required_without_all": "The {attribute} field is required when none of {values} are present.",
+            "same": "The {attribute} and {other} must match.",
+            "size": {
+                "numeric": "The {attribute} must be {size}.",
+                "file": "The {attribute} must be {size} kilobytes.",
+                "string": "The {attribute} must be {size} characters.",
+                "array": "The {attribute} must contain {size} items."
+            },
+            "string": "The {attribute} must be a string.",
+            "timezone": "The {attribute} must be a valid zone.",
+            "unique": "The {attribute} has already been taken.",
+            "uploaded": "The {attribute} failed to upload.",
+            "url": "The {attribute} format is invalid.",
+            "custom": {
+                "attribute-name": {
+                    "rule-name": "custom-message"
+                }
+            },
+            "attributes": []
         }
     }
 });
@@ -5819,47 +5988,50 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('img', {
     attrs: {
-      "src": _vm.countryFlags.ua
+      "src": _vm.countryFlags[_vm.curLang]
     }
   }), _vm._v(" "), _c('span', {
     staticClass: "caret"
   })]), _vm._v(" "), _c('ul', {
-    staticClass: "dropdown-menu language-selector"
-  }, [_c('li', [_c('a', {
+    staticClass: "dropdown-menu language-selector",
+    on: {
+      "click": function($event) {
+        $event.preventDefault();
+        _vm.changeLang($event.target)
+      }
+    }
+  }, [(_vm.curLang != 'ua') ? _c('li', [_c('a', {
     attrs: {
       "href": "#"
     }
   }, [_c('img', {
     attrs: {
+      "lang": "ua",
       "src": _vm.countryFlags.ua
     }
-  })])]), _vm._v(" "), _c('li', {
-    staticClass: "divider",
+  })])]) : _vm._e(), _vm._v(" "), _c('hr', {
+    staticClass: "devider"
+  }), _vm._v(" "), (_vm.curLang != 'en') ? _c('li', [_c('a', {
     attrs: {
-      "role": "separator"
-    }
-  }), _vm._v(" "), _c('li', [_c('a', {
-    attrs: {
-      "href": "/us"
+      "href": "/en"
     }
   }, [_c('img', {
     attrs: {
-      "src": _vm.countryFlags.us
+      "lang": "en",
+      "src": _vm.countryFlags.en
     }
-  })])]), _vm._v(" "), _c('li', {
-    staticClass: "divider",
-    attrs: {
-      "role": "separator"
-    }
-  }), _vm._v(" "), _c('li', [_c('a', {
+  })])]) : _vm._e(), _vm._v(" "), _c('hr', {
+    staticClass: "devider"
+  }), _vm._v(" "), (_vm.curLang != 'ru') ? _c('li', [_c('a', {
     attrs: {
       "href": "/ru"
     }
   }, [_c('img', {
     attrs: {
+      "lang": "ru",
       "src": _vm.countryFlags.ru
     }
-  })])])])])])])])]), _vm._v(" "), _vm._m(1)])
+  })])]) : _vm._e()])])])])])]), _vm._v(" "), _vm._m(1)])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     staticClass: "navbar-header"
@@ -6330,7 +6502,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('h1', {
     staticClass: "works-header text-center"
   }, [_vm._v(" " + _vm._s(_vm.$t('checkout.basket')) + " ")]), _vm._v(" "), (_vm.cartState) ? [_c('table', {
-    staticClass: "table table-bordered order-table"
+    staticClass: "table table-hover order-table"
   }, [_c('thead', [_c('tr', [_c('td', [_vm._v(" " + _vm._s(_vm.$t('checkout.name')) + " ")]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.$t('checkout.format')) + " ")]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.$t('checkout.price')) + " ")]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(_vm.$t('checkout.action')) + " ")])])]), _vm._v(" "), _c('tbody', _vm._l((_vm.cart), function(item) {
     return _c('tr', [_c('td', [_vm._v(" " + _vm._s(item.name))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(item.format))]), _vm._v(" "), _c('td', [_vm._v(" " + _vm._s(item.format === 'custom' ? _vm.$t('checkout.contract_price') : item.price[item.format]) + " ")]), _vm._v(" "), _c('td', [_c('span', {
       staticClass: "remove-cart-item glyphicon glyphicon-remove",

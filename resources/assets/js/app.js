@@ -36,18 +36,18 @@ new Vue({
 
     el: '#app',
 
-    data: () => ({
-      items: []
-  }),
+  //   data: () => ({
+  //     items: []
+  // }),
 
-    computed: {
-      total() {
-        var total = 0;
-        for(var i = 0; i < this.items.length; i++) {
-          total += this.items[i].price;
-      }
-      return total;
-  }
-}
+  //   computed: {
+  //     total() {
+  //       var total = 0;
+  //       for(var i = 0; i < this.items.length; i++) {
+  //         total += this.items[i].price;
+  //     }
+  //     return total;
+  // }
+// }
 
 });

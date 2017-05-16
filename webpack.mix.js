@@ -10,19 +10,17 @@ let LiveReloadPlugin = require('webpack-livereload-plugin');
         'node_modules/sweetalert2/dist/sweetalert2.min.css'
         ], 'public/css/vendor.css');
 
-    mix.combine([
-        'resources/assets/sass/app.scss',
-        ], 'resources/assets/sass/bundle/app.scss')
+    // mix.combine([
+    //     'resources/assets/sass/app.scss',
+    //     ], 'resources/assets/sass/bundle/app.scss');
+
+    // client app.css
     mix.sass('resources/assets/sass/app.scss', '../resources/assets/sass/bundle/app.css');
+    mix.combine(['resources/assets/sass/bundle/app.css'], 'public/css/app.css');
 
-    // cart scss temp
-    mix.sass('resources/assets/sass/bundle/cart.scss', 'public/css/cart.css');
-
-    mix.combine([
-        'resources/assets/sass/bundle/app.css'
-        ],
-        'public/css/app.css'
-        );
+    // admin app.css
+    mix.sass('resources/assets/sass/app-admin.scss', '../resources/assets/sass/bundle/app-admin.css');
+    mix.combine(['resources/assets/sass/bundle/app-admin.css'], 'public/css/app-admin.css');
 
     // vendor js
     mix.combine([

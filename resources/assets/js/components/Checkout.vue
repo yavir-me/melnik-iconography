@@ -9,7 +9,7 @@
                 <h1 class="works-header text-center"> {{ $t('checkout.basket') }} </h1>
 
                 <template v-if="cartState">
-                    <table class="table table-bordered order-table">
+                    <table class="table table-hover order-table">
                         <thead>
                             <tr>
                                 <td> {{ $t('checkout.name') }} </td>

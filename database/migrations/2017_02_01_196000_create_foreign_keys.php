@@ -22,12 +22,6 @@ class CreateForeignKeys extends Migration
             $table->engine = 'InnoDB';
         });
 
-        // Schema::table('orders', function ($table) {
-        //     $table->foreign('user_id')
-        //     ->references('id')->on('users')
-        //     ->onUpdate('cascade')
-        //     ->onDelete('cascade');
-        // });
 
         Schema::table('slideshow', function ($table)
         {
@@ -49,9 +43,7 @@ class CreateForeignKeys extends Migration
         Schema::table('icons', function (Blueprint $table) {
             $table->dropForeign('icons_lang_id_foreign');
         }); 
-        Schema::table('orders', function (Blueprint $table) {
-            $table->dropForeign('orders_user_id_foreign');
-        });
+
         Schema::table('slideshow', function (Blueprint $table) {
             $table->dropForeign('slideshow_lang_id_foreign');
         });

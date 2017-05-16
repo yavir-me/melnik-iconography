@@ -52,21 +52,21 @@
 
     <li class="dropdown">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-        <img :src="countryFlags.ua">
+        <img :src="countryFlags[curLang]">
         <span class="caret"></span>
     </a>
 
-    <ul class="dropdown-menu language-selector">
-        <li>
-          <a href="#"><img :src="countryFlags.ua"></a>
+    <ul @click.prevent="changeLang($event.target)" class="dropdown-menu language-selector">
+        <li v-if="curLang != 'ua'">
+          <a href="#"><img lang="ua" :src="countryFlags.ua"></a>
       </li>
-      <li role="separator" class="divider"></li>
-      <li>
-          <a href="/us"><img :src="countryFlags.us"></a>
+      <hr class="devider">
+      <li v-if="curLang != 'en'">
+          <a href="/en"><img lang="en" :src="countryFlags.en"></a>
       </li>
-      <li role="separator" class="divider"></li>
-      <li>
-          <a href="/ru"><img :src="countryFlags.ru"></a>
+      <hr class="devider">
+      <li v-if="curLang != 'ru'">
+          <a href="/ru"><img lang="ru" :src="countryFlags.ru"></a>
       </li>
   </ul>
 </li>
@@ -94,16 +94,19 @@
       countryFlags: {
         ua: '/img/langs/ukraine.svg',
         ru: '/img/langs/russia.svg',
-        us: '/img/langs/united-states.svg'
+        en: '/img/langs/united-states.svg'
     },
     cartObj: new Cart(),
     cart: {},
     cartCounter: 0,
     cartContent: null,
-    showPopover: false
+    showPopover: false,
+    curLang: ''
 }),
 
     mounted() {
+      this.defineLang();
+
       axios.get('/get-galleries')
       .then(galleries => {
         this.galleries = galleries.data;
@@ -113,6 +116,27 @@
   },
 
   methods: {
+
+    defineLang() {
+        let lang = this.$cookie.get('lang');
+
+        if (lang) {
+            Vue.config.lang = lang;
+            this.curLang = lang;
+        } else {
+            Vue.config.lang = 'ru';
+            this.curLang = 'ru';
+        }
+
+    },
+
+    changeLang(e) {
+        console.log(e);
+        let lang = e.getAttribute('lang');
+        this.curLang = lang;
+        Vue.config.lang = lang;
+        this.$cookie.set('lang', lang);
+    },
 
     updateCartCounter() {
         let cart = JSON.parse(this.$cookie.get('cart'));

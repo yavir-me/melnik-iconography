@@ -15,16 +15,16 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/gallery/{path}/{id}', 'GalleryController@showIcon');
 
-    // Route::get('/cart', 'HomeController@cart');
-
     Route::get('/checkout', 'CheckoutController@index');
 
     // AJAX requests
-
     Route::get('/get-last-icons', 'HomeController@lastIcons');
-
     Route::get('/get-galleries', 'GalleryController@getGalleries');
-
     Route::post('/make-order', 'OrdersController@makeOrder');
 
+    // ADMIN PART
+
+    Route::get('/artisan', 'Artisan\SessionsController@create');
+    Route::post('/artisan', 'Artisan\SessionsController@store');
+    Route::get('/dashboard', 'Artisan\SessionsController@dashboard')->name('dashboard');
 });

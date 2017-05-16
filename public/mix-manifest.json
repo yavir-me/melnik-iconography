@@ -1,9 +1,9 @@
 {
   "/js/app.js": "/js/app.js",
   "/../resources/assets/sass/bundle/app.css": "/../resources/assets/sass/bundle/app.css",
-  "/css/cart.css": "/css/cart.css",
+  "/../resources/assets/sass/bundle/app-admin.css": "/../resources/assets/sass/bundle/app-admin.css",
   "/css/vendor.css": "/css/vendor.css",
-  "resources/assets/sass/bundle/app.scss": "resources/assets/sass/bundle/app.scss",
   "/css/app.css": "/css/app.css",
+  "/css/app-admin.css": "/css/app-admin.css",
   "/js/vendor.js": "/js/vendor.js"
 }

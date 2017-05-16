@@ -14,7 +14,7 @@
 <meta name="theme-color" content="#ffffff">
 
   <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/vendor.css') }}">
-  <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app-admin.css') }}">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
