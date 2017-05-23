@@ -14248,16 +14248,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         confirmOrder: function confirmOrder() {
             var self = this;
-            this.form.post('/make-order').then(function () {
-                swal({
-                    title: self.$t('checkout.order_title'),
-                    text: self.$t('checkout.order_text'),
-                    type: 'success'
-                }).then(function () {
-                    self.cartObj.clearCart();
-                    location.replace('/');
-                });
-            });
+            this.form.post('/make-order');
+            // .then(function() {
+            // swal({
+            //     title: self.$t('checkout.order_title'),
+            //     text: self.$t('checkout.order_text'),
+            //     type: 'success'
+            // })
+            // .then(function() {
+            // self.cartObj.clearCart();
+            // location.replace('/');
+            // });
+
+            // });
         }
     }
 
@@ -14376,19 +14379,54 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
-  data: function data() {
-    return {
-      galleries: []
-    };
-  },
+    data: function data() {
+        return {
+            galleries: [],
+            langs: {
+                ua: {
+                    id: 1
+                },
+                ru: {
+                    id: 2
+                },
+                en: {
+                    id: 3
+                }
+            },
+            curLang: ''
+        };
+    },
 
-  beforeCreate: function beforeCreate() {
-    var _this = this;
+    mounted: function mounted() {
+        this.changeCategoriesLang();
+    },
 
-    axios.get('/get-galleries').then(function (galleries) {
-      _this.galleries = galleries.data;
-    });
-  }
+
+    methods: {
+        changeCategoriesLang: function changeCategoriesLang() {
+            this.defineLang();
+            this.getGalleries();
+        },
+        getGalleries: function getGalleries() {
+            var _this = this;
+
+            axios.get('/get-galleries/' + this.langs[this.curLang].id).then(function (galleries) {
+                _this.galleries = galleries.data;
+            });
+        },
+        defineLang: function defineLang() {
+            var lang = this.$cookie.get('lang');
+
+            if (lang) {
+                Vue.config.lang = lang;
+                this.curLang = lang;
+            } else {
+                Vue.config.lang = 'ru';
+                this.curLang = 'ru';
+            }
+        }
+    }
+
 });
 
 /***/ }),
@@ -14436,10 +14474,56 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
-    props: ['gallery'],
+    props: ['path'],
 
     data: function data() {
-        return {};
+        return {
+            icons: [],
+            gallery: '',
+            curLang: '',
+            langs: {
+                ua: {
+                    id: 1
+                },
+                ru: {
+                    id: 2
+                },
+                en: {
+                    id: 3
+                }
+            }
+        };
+    },
+
+    mounted: function mounted() {
+        this.changeIconsLang();
+    },
+
+
+    methods: {
+        changeIconsLang: function changeIconsLang() {
+            this.defineLang();
+            this.geticons();
+        },
+        geticons: function geticons() {
+            var _this = this;
+
+            axios.get('/get-by-category/' + this.path + '/' + this.langs[this.curLang].id).then(function (icons) {
+                _this.gallery = icons.data[0];
+                _this.icons = icons.data[0].icons;
+            });
+        },
+        defineLang: function defineLang() {
+            var lang = this.$cookie.get('lang');
+
+            if (lang) {
+                Vue.config.lang = lang;
+                this.curLang = lang;
+            } else {
+                Vue.config.lang = 'ru';
+                this.curLang = 'ru';
+            }
+        }
     }
 
 });
@@ -14521,13 +14605,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
-    props: ['icon', 'formats'],
+    props: ['path', 'id'],
 
     data: function data() {
         return {
             form: new Form({
                 comment: ''
             }),
+            formats: {},
+            icon: {},
             cartObj: new Cart(),
             disabledButton: true,
             showTextarea: false,
@@ -14536,11 +14622,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             cart: {},
             cartBtnText: null,
             itemStatus: null,
-            lang: {}
+            lang: {},
+            curLang: '',
+            langs: {
+                ua: {
+                    id: 1
+                },
+                ru: {
+                    id: 2
+                },
+                en: {
+                    id: 3
+                }
+            }
         };
     },
 
     mounted: function mounted() {
+
+        this.changeCurLang();
+
         this.cart = this.cartObj.defineCart();
 
         this.cartBtnText = this.$t('icon.to_cart');
@@ -14552,10 +14653,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
+        changeCurLang: function changeCurLang() {
+            this.defineLang();
+            this.getIcon();
+        },
         langItemsInit: function langItemsInit() {
             this.lang = {
                 commentPlaceholder: this.$t('icon.textarea_placeholder')
             };
+        },
+        getIcon: function getIcon() {
+            var _this = this;
+
+            axios.get('/get-icon/' + this.id + '/' + this.langs[this.curLang].id).then(function (icon) {
+                _this.icon = icon.data.icon;
+                _this.formats = icon.data.formats;
+            });
+        },
+        defineLang: function defineLang() {
+            var lang = this.$cookie.get('lang');
+
+            if (lang) {
+                Vue.config.lang = lang;
+                this.curLang = lang;
+            } else {
+                Vue.config.lang = 'ru';
+                this.curLang = 'ru';
+            }
         },
         checkAvailable: function checkAvailable() {
             // check if this item is already in cart
@@ -14688,17 +14812,53 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     data: function data() {
         return {
-            lastIcons: []
+            lastIcons: [],
+            curLang: '',
+            langs: {
+                ua: {
+                    id: 1
+                },
+                ru: {
+                    id: 2
+                },
+                en: {
+                    id: 3
+                }
+            }
         };
     },
 
-    beforeCreate: function beforeCreate() {
-        var _this = this;
+    mounted: function mounted() {
+        this.changeIconsLang();
+    },
 
-        axios.get('/get-last-icons').then(function (lastIcons) {
-            _this.lastIcons = lastIcons.data;
-        });
+
+    methods: {
+        changeIconsLang: function changeIconsLang() {
+            this.defineLang();
+            this.getLastIcons();
+        },
+        getLastIcons: function getLastIcons() {
+            var _this = this;
+
+            axios.get('/get-last-icons/' + this.langs[this.curLang].id).then(function (lastIcons) {
+                console.log(_this.langs[_this.curLang].id);
+                _this.lastIcons = lastIcons.data;
+            });
+        },
+        defineLang: function defineLang() {
+            var lang = this.$cookie.get('lang');
+
+            if (lang) {
+                Vue.config.lang = lang;
+                this.curLang = lang;
+            } else {
+                Vue.config.lang = 'ru';
+                this.curLang = 'ru';
+            }
+        }
     }
+
 });
 
 /***/ }),
@@ -14796,82 +14956,100 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
 
-  data: function data() {
-    return {
-      galleries: [],
-      countryFlags: {
-        ua: '/img/langs/ukraine.svg',
-        ru: '/img/langs/russia.svg',
-        en: '/img/langs/united-states.svg'
-      },
-      cartObj: new Cart(),
-      cart: {},
-      cartCounter: 0,
-      cartContent: null,
-      showPopover: false,
-      curLang: ''
-    };
-  },
-
-  mounted: function mounted() {
-    var _this = this;
-
-    this.defineLang();
-
-    axios.get('/get-galleries').then(function (galleries) {
-      _this.galleries = galleries.data;
-    });
-
-    this.updateCartCounter();
-  },
-
-
-  methods: {
-    defineLang: function defineLang() {
-      var lang = this.$cookie.get('lang');
-
-      if (lang) {
-        Vue.config.lang = lang;
-        this.curLang = lang;
-      } else {
-        Vue.config.lang = 'ru';
-        this.curLang = 'ru';
-      }
+    data: function data() {
+        return {
+            galleries: [],
+            countryFlags: {
+                ua: {
+                    path: '/img/langs/ukraine.svg',
+                    id: 1
+                },
+                ru: {
+                    path: '/img/langs/russia.svg',
+                    id: 2
+                },
+                en: {
+                    path: '/img/langs/united-states.svg',
+                    id: 3
+                }
+            },
+            cartObj: new Cart(),
+            cart: {},
+            cartCounter: 0,
+            cartContent: null,
+            showPopover: false,
+            curLang: ''
+        };
     },
-    changeLang: function changeLang(e) {
-      var lang = e.getAttribute('lang');
-      if (lang) {
-        this.curLang = lang;
-        Vue.config.lang = lang;
-        this.$cookie.set('lang', lang);
-      }
-    },
-    updateCartCounter: function updateCartCounter() {
-      var cart = JSON.parse(this.$cookie.get('cart'));
-      this.cartContent = cart;
 
-      if (cart) {
-        var c = 0;
-        for (var cur in cart) {
-          c++;
+    mounted: function mounted() {
+
+        this.defineLang();
+        this.getGalleries();
+        this.updateCartCounter();
+    },
+
+
+    methods: {
+        getGalleries: function getGalleries() {
+            var _this = this;
+
+            axios.get('/get-galleries/' + this.countryFlags[this.curLang].id).then(function (galleries) {
+                _this.galleries = galleries.data;
+            });
+        },
+        defineLang: function defineLang() {
+            var lang = this.$cookie.get('lang');
+
+            if (lang) {
+                Vue.config.lang = lang;
+                this.curLang = lang;
+            } else {
+                Vue.config.lang = 'ru';
+                this.curLang = 'ru';
+            }
+        },
+        changeLang: function changeLang(e) {
+            var lang = e.getAttribute('lang');
+            if (lang) {
+                this.curLang = lang;
+                Vue.config.lang = lang;
+                this.$cookie.set('lang', lang);
+            }
+
+            this.getGalleries();
+            this.changeFooterCategoriesLang();
+        },
+        changeFooterCategoriesLang: function changeFooterCategoriesLang() {
+            this.$parent.$children[2].changeCategoriesLang();
+            this.$parent.$children[1].changeIconsLang();
+        },
+        updateCartCounter: function updateCartCounter() {
+            var cart = JSON.parse(this.$cookie.get('cart'));
+            this.cartContent = cart;
+
+            if (cart) {
+                var c = 0;
+                for (var cur in cart) {
+                    c++;
+                }
+                this.cartCounter = c;
+            } else {
+                this.cartCounter = 0;
+            }
+
+            return this.cartCounter;
+        },
+        removeFromCart: function removeFromCart(id) {
+            var icon = { id: id };
+            this.cartObj.clearFromCart(icon);
+            this.updateCartCounter();
+            this.$parent.$children[2].clearSelection(id);
+        },
+        toggleCart: function toggleCart() {
+            this.showPopover = this.showPopover ? false : true;
         }
-        this.cartCounter = c;
-      } else {
-        this.cartCounter = 0;
-      }
-
-      return this.cartCounter;
-    },
-    removeFromCart: function removeFromCart(id) {
-      var icon = { id: id };
-      this.cartObj.clearFromCart(icon);
-      this.updateCartCounter();
-      this.$parent.$children[2].clearSelection(id);
-    },
-    toggleCart: function toggleCart() {
-      this.showPopover = this.showPopover ? false : true;
     }
-  }
 
 });
 
@@ -15603,7 +15781,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "caption"
     }, [_c('h3', {
       staticClass: "text-center"
-    }, [_vm._v(" " + _vm._s(icon.name || 'some long name goes here bla and St. Anna\'s Icons') + " ")]), _vm._v(" "), _c('div', {
+    }, [_vm._v(" " + _vm._s(icon.title || 'some long name goes here bla and St. Anna\'s Icons') + " ")]), _vm._v(" "), _c('div', {
       staticClass: "item-actions"
     }, [_c('div', {
       staticClass: "cols-sm-12"
@@ -15706,7 +15884,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "aria-hidden": "true"
     }
-  }), _vm._v("\n              " + _vm._s(_vm.$t('navigation.cart')) + "\n              "), _c('span', {
+  }), _vm._v("\n        " + _vm._s(_vm.$t('navigation.cart')) + "\n        "), _c('span', {
     staticClass: "badge"
   }, [_vm._v(" " + _vm._s(_vm.cartCounter) + " ")])]), _vm._v(" "), (_vm.cartCounter) ? _c('cart-popover', {
     directives: [{
@@ -15734,7 +15912,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('img', {
     attrs: {
-      "src": _vm.countryFlags[_vm.curLang]
+      "src": _vm.countryFlags[_vm.curLang].path
     }
   }), _vm._v(" "), _c('span', {
     staticClass: "caret"
@@ -15753,7 +15931,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('img', {
     attrs: {
       "lang": "ua",
-      "src": _vm.countryFlags.ua
+      "src": _vm.countryFlags.ua.path
     }
   })])]) : _vm._e(), _vm._v(" "), (_vm.curLang != 'en') ? _c('li', [_c('a', {
     attrs: {
@@ -15762,7 +15940,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('img', {
     attrs: {
       "lang": "en",
-      "src": _vm.countryFlags.en
+      "src": _vm.countryFlags.en.path
     }
   })])]) : _vm._e(), _vm._v(" "), (_vm.curLang != 'ru') ? _c('li', [_c('a', {
     attrs: {
@@ -15771,7 +15949,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('img', {
     attrs: {
       "lang": "ru",
-      "src": _vm.countryFlags.ru
+      "src": _vm.countryFlags.ru.path
     }
   })])]) : _vm._e()])])])])])]), _vm._v(" "), _vm._m(1)])
 },staticRenderFns: [function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -15821,7 +15999,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "aria-hidden": "true"
     }
-  }, [_vm._v("×")])]), _vm._v(" "), _c('strong', [_vm._v("Thank you for the order!")]), _vm._v(" I'll contact you soon.\n  ")])
+  }, [_vm._v("×")])]), _vm._v(" "), _c('strong', [_vm._v("Thank you for the order!")]), _vm._v(" I'll contact you soon.\n")])
 }]}
 module.exports.render._withStripped = true
 if (false) {
@@ -15872,12 +16050,12 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "aria-hidden": "true"
     }
-  }), _vm._v("\n          " + _vm._s(_vm.$t('footer.gallery')) + "\n        ")]), _vm._v(" "), _c('div', {
+  }), _vm._v("\n        " + _vm._s(_vm.$t('footer.gallery')) + "\n    ")]), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
   }, [_c('ul', _vm._l((_vm.galleries), function(gallery) {
     return _c('li', [_c('a', {
       attrs: {
-        "href": "/gallery/" + gallery.path
+        "href": ("/gallery/" + (gallery.path))
       }
     }, [_vm._v(_vm._s(gallery.name))])])
   }))])])]), _vm._v(" "), _c('div', {
@@ -15891,7 +16069,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "aria-hidden": "true"
     }
-  }), _vm._v("\n          " + _vm._s(_vm.$t('footer.contacts')) + "\n        ")]), _vm._v(" "), _c('div', {
+  }), _vm._v("\n        " + _vm._s(_vm.$t('footer.contacts')) + "\n    ")]), _vm._v(" "), _c('div', {
     staticClass: "panel-body"
   }, [_c('p', [_vm._v(" " + _vm._s(_vm.$t('footer.contact_address')) + " ")]), _vm._v(" "), _c('p', [_vm._v(" " + _vm._s(_vm.$t('footer.phone')) + " ")]), _vm._v(" "), _vm._m(1)])])])]), _vm._v(" "), _c('div', {
     staticClass: "row author-row text-center"
@@ -16607,7 +16785,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "row last-works-row"
   }, [_c('h1', {
     staticClass: "text-center gallery-header"
-  }, [_vm._v(" " + _vm._s(_vm.gallery.name) + " ")]), _vm._v(" "), _vm._l((_vm.gallery.icons), function(icon) {
+  }, [_vm._v(" " + _vm._s(_vm.gallery.name) + " ")]), _vm._v(" "), _vm._l((_vm.icons), function(icon) {
     return _c('div', {
       staticClass: "col-sm-12 col-md-3 col-lg-3 icon"
     }, [_c('div', {
@@ -16626,7 +16804,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "caption"
     }, [_c('h3', {
       staticClass: "text-center"
-    }, [_vm._v(" " + _vm._s(icon.name || 'some long name goes here bla and St. Anna\'s Icons') + " ")]), _vm._v(" "), _c('div', {
+    }, [_vm._v(" " + _vm._s(icon.title) + " ")]), _vm._v(" "), _c('div', {
       staticClass: "item-actions"
     }, [_c('div', {
       staticClass: "cols-sm-12"

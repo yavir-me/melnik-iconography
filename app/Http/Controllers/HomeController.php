@@ -27,11 +27,15 @@ class HomeController extends Controller
         return view('home', compact('slides', 'icons'));
     }
 
-    public function lastIcons()
+    public function lastIcons($id)
     {
         return Icon::with(array('gallery' => function($query) {
             $query->select('id', 'path');
-        }))->latest()->limit(12)->get();
+        }))
+        ->where('lang_id', $id)
+        ->latest()
+        ->limit(12)
+        ->get();
     }
 
 }

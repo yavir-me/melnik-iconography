@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
 use App\Order;
+use App\OrdersIcons;
 use \Faker\Factory;
+use \Carbon\Carbon;
 
 class OrdersController extends Controller
 {
@@ -17,20 +18,24 @@ class OrdersController extends Controller
           'phone' => 'required|digits_between:9,14',
           ]);
 
-        $blankOrder = $request->all();
-
         $faker = Factory::create();
         $orderId = $faker->unique()->numberBetween($min = 00000, $max = 99999);
 
+        Order::create([
+            'id' => $orderId,
+            'name' => $request->get('name'),
+            'phone' => $request->get('phone'),
+            'email' => $request->get('email'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+            ]);
+
         foreach ($request->get('cart') as $icon) {
-            Order::create([
+            OrdersIcons::create([
                 'order_id' => $orderId,
-                'name' => $request->get('name'),
-                'phone' => $request->get('phone'),
-                'email' => $request->get('email'),
-                'comments' => $icon['comment'],
                 'icon_id' => $icon['id'],
                 'format' => $icon['format']
+                'comments' => $icon['comment'],
                 ]);
         }
 

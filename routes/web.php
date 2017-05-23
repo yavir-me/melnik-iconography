@@ -18,8 +18,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/checkout', 'CheckoutController@index');
 
     // AJAX requests
-    Route::get('/get-last-icons', 'HomeController@lastIcons');
-    Route::get('/get-galleries', 'GalleryController@getGalleries');
+    Route::get('/get-last-icons/{id}', 'HomeController@lastIcons');
+    Route::get('/get-galleries/{id}', 'GalleryController@getGalleries');
+    Route::get('/get-by-category/{path}/{id}', 'GalleryController@getIconsByCat');
+    Route::get('/get-icon/{id}/{lang}', 'GalleryController@getIcon');
     Route::post('/make-order', 'OrdersController@makeOrder');
 
     // ADMIN PART

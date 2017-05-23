@@ -1,6 +1,6 @@
 @extends('layouts.default')
 @section('content')
 
-<icon-component :icon="{{ $icon }}" :formats="{{ json_encode($formats) }}"></icon-component>
+<icon-component path="{{ $path }}" id="{{ $id }}"></icon-component>
 
 @stop

@@ -162,19 +162,19 @@
 
             confirmOrder() {
                 let self = this;
-                this.form.post('/make-order')
-                .then(function() {
-                    swal({
-                        title: self.$t('checkout.order_title'),
-                        text: self.$t('checkout.order_text'),
-                        type: 'success'
-                    })
-                    .then(function() {
-                        self.cartObj.clearCart();
-                        location.replace('/');
-                    });
+                this.form.post('/make-order');
+                // .then(function() {
+                    // swal({
+                    //     title: self.$t('checkout.order_title'),
+                    //     text: self.$t('checkout.order_text'),
+                    //     type: 'success'
+                    // })
+                    // .then(function() {
+                        // self.cartObj.clearCart();
+                        // location.replace('/');
+                    // });
 
-                });
+                // });
 
             }
 

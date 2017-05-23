@@ -11,32 +11,46 @@ class GalleryController extends Controller
 
     public function gallery($path)
     {
+        return view('gallery', compact('path'));
+    }
+
+    public function getIconsByCat($path, $langId)
+    {
 
         $gallery = Gallery::with('icons')
         ->where('path', $path)
-        ->where('lang_id', 3)->get();
+        ->where('lang_id', $langId)->get();
 
-        return view('gallery', compact('gallery'));
+        return $gallery;
 
     }
 
-    public function showIcon($gallery, $id)
+    public function showIcon($path, $id)
     {
+        return view('icon', compact('path', 'id'));
+    }
+
+    public function getIcon($id, $lang)
+    {
+
         $icon = Icon::with(array('gallery' => function($query) {
             $query->select('id', 'path');
-        }))->find($id);
+        }))
+        ->where('id', $id)
+        ->where('lang_id', $lang)
+        ->firstOrFail();
+
         $formats = [
         'a3' => $icon->a3,
         'a4' => $icon->a4,
         'a5' => $icon->a5
         ];
-
-        return view('icon', compact('icon', 'formats'));
+        return $data = compact('icon', 'formats');
     }
 
-    public function getGalleries()
+    public function getGalleries($id)
     {
-        return Gallery::where('lang_id', 3)->get();
+        return Gallery::where('lang_id', $id)->get();
     }
 
 }

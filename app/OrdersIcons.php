@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class OrdersIcons extends Model
 {
+    protected $table = "orders_icons";
 
     protected $guarded = [];
-
 }

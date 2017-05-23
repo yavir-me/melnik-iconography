@@ -70,14 +70,16 @@
     export default {
 
         props: [
-        'icon',
-        'formats'
+        'path',
+        'id'
         ],
 
         data: () => ({
             form: new Form({
                 comment: ''
             }),
+            formats: {},
+            icon: {},
             cartObj: new Cart(),
             disabledButton: true,
             showTextarea: false,
@@ -86,10 +88,25 @@
             cart: {},
             cartBtnText: null,
             itemStatus: null,
-            lang: {}
-        }),
+            lang: {},
+            curLang: '',
+            langs: {
+                ua: {
+                  id: 1
+              },
+              ru: {
+                id: 2
+            },
+            en: {
+                id: 3
+            }
+        },
+    }),
 
         mounted() {
+
+            this.changeCurLang();
+
             this.cart = this.cartObj.defineCart();
 
             this.cartBtnText = this.$t('icon.to_cart');
@@ -101,13 +118,39 @@
 
         methods: {
 
-            langItemsInit() {
-                this.lang = {
-                    commentPlaceholder: this.$t('icon.textarea_placeholder')
-                }
-            },
+          changeCurLang() {
+            this.defineLang();
+            this.getIcon();
+        },
 
-            checkAvailable() {
+        langItemsInit() {
+            this.lang = {
+                commentPlaceholder: this.$t('icon.textarea_placeholder')
+            }
+        },
+
+        getIcon() {
+            axios.get(`/get-icon/${this.id}/${this.langs[this.curLang].id}`)
+            .then(icon => {
+                this.icon = icon.data.icon;
+                this.formats = icon.data.formats;
+            });
+        },
+
+        defineLang() {
+            let lang = this.$cookie.get('lang');
+
+            if (lang) {
+              Vue.config.lang = lang;
+              this.curLang = lang;
+          } else {
+              Vue.config.lang = 'ru';
+              this.curLang = 'ru';
+          }
+
+      },
+
+      checkAvailable() {
                 // check if this item is already in cart
                 for (let cur in this.cart) {
                     if (this.cart[cur].id === this.icon.id) {

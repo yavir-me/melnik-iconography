@@ -20,7 +20,6 @@ Vue.component('new-icon-component', NewIcon);
 Vue.component('orders-component', Orders);
 Vue.component('footer-component', Footer);
 
-
 new Vue({
 
     el: '#app',

@@ -12,7 +12,7 @@
 
                 <div class="caption">
 
-                    <h3 class="text-center"> {{ icon.name || 'some long name goes here bla and St. Anna\'s Icons'}} </h3>
+                    <h3 class="text-center"> {{ icon.title || 'some long name goes here bla and St. Anna\'s Icons'}} </h3>
 
                     <div class="item-actions">
 
@@ -40,18 +40,55 @@
     export default  {
 
         data: () => ({
-            lastIcons: []
-        }),
+            lastIcons: [],
+            curLang: '',
+            langs: {
+                ua: {
+                  id: 1
+              },
+              ru: {
+                id: 2
+            },
+            en: {
+                id: 3
+            }
+        }
+    }),
 
-        beforeCreate() {
+        mounted() {
+            this.changeIconsLang();
+        },
 
-            axios.get('/get-last-icons')
+        methods: {
+
+          changeIconsLang() {
+            this.defineLang();
+            this.getLastIcons();
+        },
+
+        getLastIcons() {
+            axios.get(`/get-last-icons/${this.langs[this.curLang].id}`)
             .then(lastIcons => {
+                console.log(this.langs[this.curLang].id);
                 this.lastIcons = lastIcons.data;
             });
+        },
 
-        }
+        defineLang() {
+            let lang = this.$cookie.get('lang');
 
-    }
+            if (lang) {
+              Vue.config.lang = lang;
+              this.curLang = lang;
+          } else {
+              Vue.config.lang = 'ru';
+              this.curLang = 'ru';
+          }
+
+      }
+
+  }
+
+}
 
 </script>
