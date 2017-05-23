@@ -2,6 +2,7 @@
   "/js/app.js": "/js/app.js",
   "/../resources/assets/sass/bundle/app.css": "/../resources/assets/sass/bundle/app.css",
   "/../resources/assets/sass/bundle/app-admin.css": "/../resources/assets/sass/bundle/app-admin.css",
+  "/js/app-admin.js": "/js/app-admin.js",
   "/css/vendor.css": "/css/vendor.css",
   "/css/app.css": "/css/app.css",
   "/css/app-admin.css": "/css/app-admin.css",

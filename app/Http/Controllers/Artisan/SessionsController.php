@@ -9,7 +9,8 @@ class SessionsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['create', 'store']);
+        $this->middleware('guest')->only('create');
+        $this->middleware('authenticated')->only('destroy');
     }
 
     public function create()
@@ -24,15 +25,20 @@ class SessionsController extends Controller
             'password' => 'required|min:5|max:30'
             ]);
 
-        // sign in him 
-        if (! \Auth::attempt(request(['email', 'password']))) {
+        if (! auth()->attempt(request(['email', 'password']))) {
             return back()->withErrors([
                 'message' => 'Неправильно введены логин или пароль.'
                 ]);
         }
 
-        // redirect to a dashboard page
-        redirect()->dashboard();
+        return redirect()->route('dashboard');
+    }
+
+    public function destroy()
+    {
+        auth()->logout();
+
+        return redirect()->route('artisan');
     }
 
 }

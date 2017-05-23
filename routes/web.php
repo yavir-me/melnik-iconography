@@ -23,8 +23,21 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/make-order', 'OrdersController@makeOrder');
 
     // ADMIN PART
-
-    Route::get('/artisan', 'Artisan\SessionsController@create');
+    Route::get('/artisan', 'Artisan\SessionsController@create')->name('artisan');
     Route::post('/artisan', 'Artisan\SessionsController@store');
-    Route::get('/dashboard', 'Artisan\SessionsController@dashboard')->name('dashboard');
+    Route::delete('/logout', 'Artisan\SessionsController@destroy');
+
+    Route::get('/dashboard', 'Artisan\DashboardController@show')->name('dashboard');
+
+    Route::get('/dashboard/galleries/{gallery}', 'Artisan\GalleriesController@show');
+    Route::delete('/dashboard/galleries/icon/{id}', 'Artisan\GalleriesController@destroy');
+
+    Route::get('/dashboard/{gallery}/{id}', 'Artisan\IconsController@show');
+    Route::post('/dashboard/{gallery}/{id}', 'Artisan\IconsController@update');
+
+    Route::get('/dashboard/add-to-gallery/{gallery}/create', 'Artisan\NewIconController@show');
+    Route::post('/dashboard/add-to-gallery/{gallery}/create', 'Artisan\NewIconController@create');
+
+    Route::get('/dashboard/orders', 'Artisan\OrdersController@show');
+
 });

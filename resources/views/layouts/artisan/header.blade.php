@@ -37,4 +37,4 @@
 
     <div id="app">
 
-      <nav-component></nav-component>
+      <navigation-component></navigation-component>

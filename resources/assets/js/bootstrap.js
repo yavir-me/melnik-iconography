@@ -20,8 +20,8 @@ Object.keys(Locales).forEach(function (lang) {
 
 window.axios = axios;
 window.axios.defaults.headers.common = {
-    'X-CSRF-TOKEN': window.Laravel.csrfToken,
-    'X-Requested-With': 'XMLHttpRequest'
+  'X-CSRF-TOKEN': window.Laravel.csrfToken,
+  'X-Requested-With': 'XMLHttpRequest'
 };
 
 window.Form = Form;
@@ -29,7 +29,7 @@ window.Cart = Cart;
 
 // localization realization vue
 Vue.prototype.trans = (key) => {
-    return _.get(window.trans, key, key);
+  return _.get(window.trans, key, key);
 };
 
 // Bootstrap carousel
@@ -48,8 +48,8 @@ $(function () {
 
     // init cart trigger
     $('#cart-holder').popover({
-        trigger: 'click',
-        html: true,
-        placement: 'bottom'
-    });
+      trigger: 'click',
+      html: true,
+      placement: 'bottom'
+  });
 });

@@ -7,7 +7,6 @@
         <div class="col-sm-12 col-md-3 col-lg-3 icon" v-for="icon in gallery.icons">
 
             <div class="thumbnail">
-
                 <a :href="'/' + icon.path" :data-caption="icon.title" data-fancybox="gallery" ><img :src="'/' + icon.path"></a>
 
                 <div class="caption">

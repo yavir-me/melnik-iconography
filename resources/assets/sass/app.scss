@@ -170,6 +170,14 @@ nav .dropdown-menu>li>a {
     max-width: 25px;
 }
 
+.language-selector>li {
+    border-bottom: 1px solid white;
+}
+
+.language-selector>li:last-child {
+    border: none;
+}
+
 .item {
     margin: 0 auto;
     text-align: center;

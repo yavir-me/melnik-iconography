@@ -32,7 +32,11 @@ let LiveReloadPlugin = require('webpack-livereload-plugin');
         'node_modules/sweetalert2/dist/sweetalert2.min.js'
         ], 'public/js/vendor.js');
 
+    // client app.js
     mix.js('resources/assets/js/app.js', 'public/js/app.js');
+
+    // admin app.js
+    mix.js('resources/assets/js/app-admin.js', 'public/js/app-admin.js');
 
     mix.webpackConfig({
         plugins: [

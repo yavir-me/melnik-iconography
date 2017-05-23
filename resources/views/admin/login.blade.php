@@ -1,27 +1,52 @@
-@extends('layouts.artisan.master')
+<!DOCTYPE html>
+<html>
 
-@section('content')
+<head>
 
-<div class="row vertical-center">
+  <title>Melnik Iconography</title>
 
-  <div class="col-sm-12 col-md-6 col-md-offset-3 login-block">
+  {{-- Responsive favicon --}}
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/favicon/manifest.json">
+  <link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#8b0000">
+  <meta name="theme-color" content="#ffffff">
 
-    <div class="panel panel-primary">
+  <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/vendor.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app-admin.css') }}">
 
-      <div class="panel-heading">
-          <h3 class="text-center">Логин</h3>
-      </div>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-      <div class="panel-body">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 
-          <login-form></login-form>
+  <script>
 
-      </div>
+    window.Laravel = {!! json_encode([
+      'csrfToken' => csrf_token()
+      ]) !!};
 
-  </div>
+  </script>
 
-</div>
 
-</div>
+</head>
 
-@endsection
+<body>
+
+  <div class="container">
+
+    <div id="app">
+
+        <auth-page-component errors=" {{ json_encode($errors->all()) }} "></auth-page-component>
+
+        <footer-component></footer-component>
+
+    </div> {{-- closes main container --}}
+
+</div> {{-- closes div id 'app' --}}
+
+<script type="text/javascript" src="{{ URL::asset('js/vendor.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/app-admin.js') }}"></script>
+
+</body>
+</html>
