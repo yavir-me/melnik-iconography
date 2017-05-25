@@ -7,8 +7,8 @@
       <div class="col-sm-12 reach-me">
 
         <div class="col-sm-4 col-md-3 col-md-offset-4">
-          <h3>Stay in touch:</h3>
-          <p>Receive our latest news</p>
+          <h3>{{ $t('footer.in_touch') }}</h3>
+          <p>{{ $t('footer.touch_p') }}</p>
       </div>
 
       <div class="col-sm-8 col-md-5">
@@ -43,8 +43,8 @@
     </div>
     <div class="panel-body">
 
-        <p> {{ $t('footer.contact_address') }} </p>
-        <p> {{ $t('footer.phone') }} </p>
+        <p> {{ $t('footer.viber') }} </p>
+        <p> {{ $t('footer.email') }} </p>
 
         <ul>
           <li>

@@ -34,10 +34,6 @@
   </li>
 
   <li role="presentation">
-      <a href="/contacts">{{ $t('navigation.contacts') }}</a>
-  </li>
-
-  <li role="presentation">
       <a href="/shipping">{{ $t('navigation.payment_delivery') }}</a>
   </li>
 

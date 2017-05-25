@@ -11,9 +11,11 @@
 
             <div class="col-sm-12 col-md-8">
 
-        <h1 class="works-header text-center"> {{ $t('about.header') }} </h1>
+                <h1 class="works-header text-center"> {{ $t('about.header') }} </h1>
 
-                {{ $t('about.main-content') }}
+                <p> {{ $t('about.p1') }} </p>
+                <p> {{ $t('about.p2') }} </p>
+                <p> {{ $t('about.p3') }} </p>
 
             </div>
 

@@ -1,0 +1,5 @@
+@extends('layouts.default')
+@section('description', 'Share text and photos with your friends and have fun')
+@section('keywords', 'sharing, sharing text, text, sharing photo, photo,')
+@section('robots', 'index, follow')
+@section('revisit-after', 'content="3 days')

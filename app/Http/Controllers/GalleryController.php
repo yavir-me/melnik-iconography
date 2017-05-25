@@ -5,12 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Gallery;
 use App\Icon;
+use Meta;
 
 class GalleryController extends Controller
 {
 
     public function gallery($path)
     {
+
+        $this->setMeta($path, 'gallery');
+
         return view('gallery', compact('path'));
     }
 
@@ -27,6 +31,8 @@ class GalleryController extends Controller
 
     public function showIcon($path, $id)
     {
+        $this->setMeta($path, 'icon', $id);
+
         return view('icon', compact('path', 'id'));
     }
 
@@ -51,6 +57,37 @@ class GalleryController extends Controller
     public function getGalleries($id)
     {
         return Gallery::where('lang_id', $id)->get();
+    }
+
+    public function getLangId()
+    {
+        $lang = $_COOKIE['lang'];
+
+        $langs = [
+        'ua' => 1,
+        'ru' => 2,
+        'en' => 3
+        ];
+
+        return $langs[$lang];
+    }
+
+    public function setMeta($path, $type, $id = null)
+    {
+        $langId = $this->getLangId();
+
+        if ($type === 'gallery') {
+            $meta = Gallery::where('path', $path)
+            ->where('lang_id', $langId)
+            ->firstOrFail();
+        } else if($type === 'icon') {
+            $meta = Icon::where('id', $id)
+            ->where('lang_id', $langId)
+            ->firstOrFail();
+        }
+
+        Meta::set('description', $meta['meta_description']);
+        Meta::set('keywords', $meta['meta_keywords']);
     }
 
 }

@@ -7,6 +7,9 @@ use App\Order;
 use App\OrdersIcons;
 use \Faker\Factory;
 use \Carbon\Carbon;
+use Mail;
+use App\Mail\NewOrder;
+use App\Mail\CustomerOrderVerification;
 
 class OrdersController extends Controller
 {
@@ -26,6 +29,7 @@ class OrdersController extends Controller
             'name' => $request->get('name'),
             'phone' => $request->get('phone'),
             'email' => $request->get('email'),
+            'status' => 'new',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
             ]);
@@ -34,10 +38,30 @@ class OrdersController extends Controller
             OrdersIcons::create([
                 'order_id' => $orderId,
                 'icon_id' => $icon['id'],
-                'format' => $icon['format']
+                'format' => $icon['format'],
                 'comments' => $icon['comment'],
                 ]);
+
+        }
+
+        if ($request->get('email')) {
+            $this->sendMail($request->get('email'));
+        } else {
+            $this->sendMail();
         }
 
     }
+
+    public function sendMail($customerEmail = null)
+    {
+        Mail::to('vadim.ikonnopis@gmail.com')->send(new NewOrder($customerEmail));
+
+        // send mail to the customer if he provided email address
+        if ($customerEmail) {
+            Mail::to($customerEmail)->send(new CustomerOrderVerification());
+        }
+    }
+
+
+
 }

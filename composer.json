@@ -9,7 +9,8 @@
         "laravel/framework": "5.3.*",
         "laravel/socialite": "^2.0",
         "guzzlehttp/guzzle": "^6.2",
-        "martinlindhe/laravel-vue-i18n-generator": "^0.1.12"
+        "martinlindhe/laravel-vue-i18n-generator": "^0.1.12",
+        "eusonlito/laravel-meta": "3.1.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

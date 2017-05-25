@@ -5,7 +5,10 @@
 
             <h1 class="works-header text-center"> {{ $t('shipping.header') }} </h1>
 
-            {{ $t('shipping.main-content') }}
+            <p> {{ $t('shipping.p1') }} </p>
+            <p> {{ $t('shipping.p2') }} </p>
+            <p> {{ $t('shipping.p3') }} </p>
+            <p> {{ $t('shipping.p4') }} </p>
 
         </div>
 

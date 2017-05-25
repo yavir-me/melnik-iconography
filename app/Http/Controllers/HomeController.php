@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use Session;
+use Meta;
 use App\Icon;
 use App\Slideshow;
 
@@ -17,6 +18,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $meta = $this->getMeta();
+        # Section description
+        Meta::set('description', $meta['description']);
+        Meta::set('keywords', $meta['keywords']);
 
         // get all the slides
         $slides = Slideshow::all();
@@ -36,6 +41,27 @@ class HomeController extends Controller
         ->latest()
         ->limit(12)
         ->get();
+    }
+
+    public function getMeta()
+    {
+        $lang = $_COOKIE['lang'];
+        $metaTags = [
+        'ua' => [
+        'description' => 'Продаж ікон на замовлення. Авторські ікони Ісуса Христа, Богородиці, імені, вінчальні пари, сучасні',
+        'keywords' => 'Канонічні, рукописні, храмові ікони, храмовий розпис, живопис, візантійські'
+        ],
+        'ru' => [
+        'description' => 'Продажа икон под заказ. Авторские иконы Исуса Христа, Богородицы, именные, венчальные пары, современные',
+        'keywords' => 'Каноничные, рукописные, храмовые иконы, храмовая розпись, живопись, византийские'
+        ],
+        'en' => [
+        'description' => 'Sale of icons to order. Author\'s icons of Jesus Christ, Virgin, registered, wedding couples, modern',
+        'keywords' => 'Canonical, manuscripts, icons temple, temple painting, painting, Byzantine'
+        ],
+        ];
+
+        return $metaTags[$lang];
     }
 
 }

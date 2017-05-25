@@ -2,6 +2,6 @@
 
 @section('content')
 
-<orders-component></orders-component>
+<orders-component orders="{{ json_encode($orders) }}" ></orders-component>
 
 @endsection

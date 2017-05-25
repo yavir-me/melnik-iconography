@@ -42,4 +42,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/dashboard/orders', 'Artisan\OrdersController@show');
 
+    Route::get('/get-order-details/{id}', 'Artisan\OrdersController@getOrderDetails');
+    Route::get('/change-order-status/{id}/{status}', 'Artisan\OrdersController@changeOrderStatus');
+
 });

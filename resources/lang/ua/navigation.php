@@ -1,8 +1,9 @@
 <?php
+
 return [
-    'make_order' => 'Зробити Замовлення',
-    'gallery' => 'Гале44рея',
-    'about' => 'Про 55 мене',
-    'personal_account' => 'Особистий Кабінет',
-    'contacts' => 'Контакти'
+    'gallery' => 'Галереї',
+    'about' => 'Про автора',
+    'payment_delivery' => 'Оплата і доставка',
+    'cart' => 'Кошик',
+    'checkout' => 'Оформити замовлення',
 ];

@@ -2,7 +2,9 @@ export default {
     "en": {
         "about": {
             "header": "A Few Words About Myself",
-            "main-content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim pretium ullamcorper. Fusce felis diam, porta non ultricies in, tempor ac odio. Vivamus rutrum magna id libero placerat lobortis. Ut ultrices lacinia tincidunt. Pellentesque sed mi eu orci malesuada molestie quis et elit. Pellentesque sapien velit, ultrices quis enim et, consectetur porttitor tellus. Praesent porta eget nunc sit amet dignissim. Nulla rhoncus ac massa et congue. Nam ut sem ante. In faucibus bibendum turpis, eget faucibus nulla eleifend sit amet. Praesent consequat nisl a sapien facilisis, eu condimentum tellus eleifend. Morbi vitae diam ex. Phasellus id porta turpis.\n\nEtiam dictum nulla lectus, a interdum urna porta eu. Maecenas mollis ultricies justo, non eleifend lorem vulputate eget. Aenean a mattis augue. Donec odio turpis, maximus a arcu ultricies, condimentum placerat felis. Pellentesque ac libero non est ultrices aliquet nec quis elit. Aliquam bibendum viverra sollicitudin. Nunc dignissim dui in sodales volutpat. Phasellus posuere molestie turpis sit amet aliquet. Mauris egestas rutrum orci, eu maximus libero interdum vel. Sed id libero commodo justo varius suscipit in ac dolor. Phasellus et risus mi. Cras urna neque, suscipit non cursus vel, vestibulum at leo. Cras tristique tortor vitae rhoncus vestibulum. Phasellus tempus vel massa vel ornare. Maecenas commodo auctor erat egestas iaculis.\n\nDuis finibus ex mi. Aenean diam magna, auctor nec sem vel, sagittis volutpat nibh. Curabitur vel quam pellentesque, vulputate dolor ultricies, finibus mauris. Pellentesque sollicitudin bibendum ipsum, id convallis risus condimentum ut. Aliquam odio eros, mattis ac vestibulum id, egestas et eros. Sed semper, orci eu placerat suscipit, neque enim accumsan ipsum, eget lacinia justo purus in lectus. Etiam blandit turpis eu sapien tempor ornare. Quisque a varius ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut pulvinar mi, eget venenatis neque. Morbi scelerisque pellentesque diam. Aliquam congue sollicitudin lectus, mattis interdum velit euismod eu.pull-left"
+            "p1": "Vadim is an \"Icons Artisan\" graduated from Lviv National Academy of Arts and started to work and develop in their vocation.",
+            "p2": "\"Icon - is the presence of the people depicted on the icon in our lives. Once the icon is not written to decorate temples, decorate the house. They wrote to their homes, families, family, consecrated by the presence of someone who is depicted in the icon. This is an invitation to sacred in our lives. Such a kind of act of recognition of their priorities in life. Certification of the fact that this family is first. Of course, people do not always behave with dignity or righteousness in their lives. We are not always saints, but saints has often depicted on icons always remind us that holiness - not something that is acquired only after a person's death. Holiness accessible to everyone in life because during the earthly life of a holy gained its stake in Sky.\"",
+            "p3": "Currently the store includes collections of icons, but this is only the beginning and then you can choose something from the paintings."
         },
         "auth": {
             "failed": "These credentials do not match our records.",
@@ -32,23 +34,18 @@ export default {
             "main-content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim pretium ullamcorper. Fusce felis diam, porta non ultricies in, tempor ac odio. Vivamus rutrum magna id libero placerat lobortis. Ut ultrices lacinia tincidunt. Pellentesque sed mi eu orci malesuada molestie quis et elit. Pellentesque sapien velit, ultrices quis enim et, consectetur porttitor tellus. Praesent porta eget nunc sit amet dignissim. Nulla rhoncus ac massa et congue. Nam ut sem ante. In faucibus bibendum turpis, eget faucibus nulla eleifend sit amet. Praesent consequat nisl a sapien facilisis, eu condimentum tellus eleifend. Morbi vitae diam ex. Phasellus id porta turpis.\n\nEtiam dictum nulla lectus, a interdum urna porta eu. Maecenas mollis ultricies justo, non eleifend lorem vulputate eget. Aenean a mattis augue. Donec odio turpis, maximus a arcu ultricies, condimentum placerat felis. Pellentesque ac libero non est ultrices aliquet nec quis elit. Aliquam bibendum viverra sollicitudin. Nunc dignissim dui in sodales volutpat. Phasellus posuere molestie turpis sit amet aliquet. Mauris egestas rutrum orci, eu maximus libero interdum vel. Sed id libero commodo justo varius suscipit in ac dolor. Phasellus et risus mi. Cras urna neque, suscipit non cursus vel, vestibulum at leo. Cras tristique tortor vitae rhoncus vestibulum. Phasellus tempus vel massa vel ornare. Maecenas commodo auctor erat egestas iaculis.\n\nDuis finibus ex mi. Aenean diam magna, auctor nec sem vel, sagittis volutpat nibh. Curabitur vel quam pellentesque, vulputate dolor ultricies, finibus mauris. Pellentesque sollicitudin bibendum ipsum, id convallis risus condimentum ut. Aliquam odio eros, mattis ac vestibulum id, egestas et eros. Sed semper, orci eu placerat suscipit, neque enim accumsan ipsum, eget lacinia justo purus in lectus. Etiam blandit turpis eu sapien tempor ornare. Quisque a varius ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut pulvinar mi, eget venenatis neque. Morbi scelerisque pellentesque diam. Aliquam congue sollicitudin lectus, mattis interdum velit euismod eu.pull-left"
         },
         "footer": {
-            "gallery": "Gallery",
-            "wedding_icons": "Wedding Icons",
-            "jesus_icons": "Icons of Jesus Christ",
-            "theotokos_icons": "Icons of Theotokos",
-            "nominal_icons": "Noninal Icons",
-            "measured_icons": "Measured Icons",
+            "gallery": "Galleries",
+            "viber": "Viber: +380 (63) 628 66 84",
+            "email": "vadim.ikonnopis@gmail.com",
             "contacts": "Contacts",
-            "contact_address": "Some contact 11 st. Fleet goes here 23000",
-            "phone": "0683109328",
-            "social": "Social",
+            "in_touch": "Stay in touch:",
+            "touch_p": "Receive our latest news",
             "copyrights": "All materials on this site are subject to copyright (including design). It is prohibited to copy, distribute (including copying to other sites and resources on the Internet) or any other use of information and objects without the prior consent of the copyright holder.",
             "developed_by": "Developed by"
         },
         "home": {
             "header": "Last works",
-            "view": "View",
-            "quick-order": "Quick Order"
+            "view": "View"
         },
         "icon": {
             "currency": "uah",
@@ -75,11 +72,8 @@ export default {
             "comment": "Comment"
         },
         "navigation": {
-            "make_order": "Make order",
             "gallery": "Gallery",
             "about": "About",
-            "personal_account": "Personal Account",
-            "contacts": "Contacts",
             "payment_delivery": "Payment & delivery",
             "cart": "Cart",
             "checkout": "Ckeck out"
@@ -97,7 +91,10 @@ export default {
         },
         "shipping": {
             "header": "Payment & Delivery",
-            "main-content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim pretium ullamcorper. Fusce felis diam, porta non ultricies in, tempor ac odio. Vivamus rutrum magna id libero placerat lobortis. Ut ultrices lacinia tincidunt. Pellentesque sed mi eu orci malesuada molestie quis et elit. Pellentesque sapien velit, ultrices quis enim et, consectetur porttitor tellus. Praesent porta eget nunc sit amet dignissim. Nulla rhoncus ac massa et congue. Nam ut sem ante. In faucibus bibendum turpis, eget faucibus nulla eleifend sit amet. Praesent consequat nisl a sapien facilisis, eu condimentum tellus eleifend. Morbi vitae diam ex. Phasellus id porta turpis.\n\nEtiam dictum nulla lectus, a interdum urna porta eu. Maecenas mollis ultricies justo, non eleifend lorem vulputate eget. Aenean a mattis augue. Donec odio turpis, maximus a arcu ultricies, condimentum placerat felis. Pellentesque ac libero non est ultrices aliquet nec quis elit. Aliquam bibendum viverra sollicitudin. Nunc dignissim dui in sodales volutpat. Phasellus posuere molestie turpis sit amet aliquet. Mauris egestas rutrum orci, eu maximus libero interdum vel. Sed id libero commodo justo varius suscipit in ac dolor. Phasellus et risus mi. Cras urna neque, suscipit non cursus vel, vestibulum at leo. Cras tristique tortor vitae rhoncus vestibulum. Phasellus tempus vel massa vel ornare. Maecenas commodo auctor erat egestas iaculis.\n\nDuis finibus ex mi. Aenean diam magna, auctor nec sem vel, sagittis volutpat nibh. Curabitur vel quam pellentesque, vulputate dolor ultricies, finibus mauris. Pellentesque sollicitudin bibendum ipsum, id convallis risus condimentum ut. Aliquam odio eros, mattis ac vestibulum id, egestas et eros. Sed semper, orci eu placerat suscipit, neque enim accumsan ipsum, eget lacinia justo purus in lectus. Etiam blandit turpis eu sapien tempor ornare. Quisque a varius ipsum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ut pulvinar mi, eget venenatis neque. Morbi scelerisque pellentesque diam. Aliquam congue sollicitudin lectus, mattis interdum velit euismod eu.pull-left"
+            "p1": "Delivery is throughout Ukraine.",
+            "p2": "Delivery executes by Nova Poshta and Ukrposhta.\nIf the election of Nova Poshta service delivery is within 1-3 days.",
+            "p3": "Approximate cost of delivery is between 50 uah.",
+            "p4": "You can pay for order by credit card or overhead payment"
         },
         "validation": {
             "accepted": "The {attribute} must be accepted.",
@@ -179,36 +176,78 @@ export default {
         }
     },
     "ru": {
+        "about": {
+            "header": "Несколько строк об авторе",
+            "p1": "Вадим \"Художник, иконопис\" закончил Львовскую Национальную Академию Искусств и начал работать и развиваться по собственному призванию.",
+            "p2": "\"Икона - это присутствие того, кто изображен на иконе в нашей жизни. Когда-то иконы не писались для того, чтобы украшать храмы, дома. Их писали для того, чтобы дома, семьи, освящались присутствием того, кто изображен на ней. Это своего рода приглашение святого в нашу жизнь. Своеобразный акт признания своих приоритетов в жизни. Свидетельствование того, что в этой семье есть на первом месте. Конечно, люди не всегда достойно или праведно в своей жизни. Мы не всегда есть праведными, но часто святые, изображенные на иконах, напоминают нам, что святость - не есть что-то такое, что приобретается человеком только при смерти. Святость доступна каждому ещё при жизни, ибо ещё за земной жизни святые обрели свою часточку в Небе.\"",
+            "p3": "На данный момент в магазине представлены колекции иконописи, но это лишь начало и впоследствии вы сможете выбрать что-то из живописи."
+        },
         "auth": {
             "failed": "Неправильные данные. Проверьте их и повторите попытку",
             "throttle": "Too many login attempts. Please try again in {seconds} seconds."
         },
+        "checkout": {
+            "basket": "Корзина",
+            "contract_price": "Контрактная цена",
+            "empty_cart": "Корзина пуста",
+            "total_amount": "Итого:",
+            "buyer_information": "Информация о покупателе",
+            "name": "Имя",
+            "format": "Формат",
+            "price": "Цена",
+            "action": "Действие",
+            "phone": "Телефон",
+            "email": "Почта",
+            "comments": "Комментарии",
+            "com_details": "(Если у вы хотите указать детали по поводу заказа, укажите их пожалуйста здесь)",
+            "delivery_method": "Способ доставки",
+            "make_order": "Сделать заказ",
+            "order_title": "Спасибо за ваз заказ!",
+            "order_text": "Наш менеджер свяжеться с вами в ближайшее время"
+        },
         "footer": {
-            "gallery": "Gallery",
-            "wedding_icons": "Wedding Icons",
-            "jesus_icons": "Icons of Jesus Christ",
-            "theotokos_icons": "Icons of Theotokos",
-            "nominal_icons": "Noninal Icons",
-            "measured_icons": "Measured Icons",
-            "contacts": "Contacts",
-            "contact_address": "Some contact 11 st. Fleet goes here 23000",
-            "phone": "0683109328",
-            "social": "Social",
-            "copyrights": "Все материалы данного сайта являются объектами авторского права (в том числе дизайн). Запрещается копирование, распространение (в том числе путем копирования на другие сайты и ресурсы в Интернете) или любое иное использование информации и объектов без предварительного согласия правообладателя.",
-            "developed_by": "Developed by"
+            "gallery": "Галереи",
+            "viber": "Viber: +380 (63) 628 66 84",
+            "email": "vadim.ikonnopis@gmail.com",
+            "contacts": "Контакты",
+            "in_touch": "Оставайтесь на связи: ",
+            "touch_p": "Получай последние новости, работы от автора",
+            "copyrights": "Все материалы на этом сайте защищены авторским правом (включая дизайн). Запрещается копировать, распространять (включая копирование на другие сайты и ресурсы в Интернете) или любое другое использование информации и объектов без предварительного согласия владельца авторских прав.",
+            "developed_by": "Разработано"
+        },
+        "home": {
+            "header": "Последние работы",
+            "view": "Детальнее"
+        },
+        "icon": {
+            "currency": "грн",
+            "cart_button": "В корзину",
+            "a3_format": "A3 (297 x 420 мм)",
+            "a4_format": "A4 (210 x 297 мм)",
+            "a5_format": "A5 (148 x 210 мм)",
+            "sizes_notification": "Вам следует указать размеры иконы",
+            "custom_size": "Собственный размер",
+            "size_selection": "Выберите размер иконы",
+            "to_cart": "В корзину",
+            "added": "Добавлено",
+            "textarea_placeholder": "Укажите детали заказа"
         },
         "language": {
             "message": "Немного русского текста здесь"
         },
         "navigation": {
-            "make_order": "Сделать заказ",
             "gallery": "Галереи",
-            "about": "Про автора",
-            "personal_account": "Личный кабинет",
-            "contacts": "Контакты",
+            "about": "Об авторе",
             "payment_delivery": "Оплата и доставка",
             "cart": "Корзина",
             "checkout": "Оформить заказ"
+        },
+        "shipping": {
+            "header": "Оплата и доставка",
+            "p1": "Доставка осуществляется по все територии Украины.",
+            "p2": "Доставка осуществляется с помощью услуг Новой Почты или Укрпочты.\nВ случае выбора услуг Новой Почты доставка осуществляется в течении 1-3 дней.",
+            "p3": "Приблизительная стоимость доставки составляет от 50 грн.",
+            "p4": "Вы можете оплатить заказ через карту приват банка или наложенным платежом."
         },
         "validation": {
             "accepted": "The {attribute} must be accepted.",
@@ -290,16 +329,75 @@ export default {
         }
     },
     "ua": {
+        "about": {
+            "header": "Декілька слів про автора",
+            "p1": "Вадим \"Художник, Іконопис\" Закінчив Львівську Національну Академію Мистецтв та почав працювати та розвиватись за своїм покликанням.",
+            "p2": "\"Ікона — це присутність того хто зображений на іконі в нашому житті. Колись ікони не писалися для того, щоб прикрасити храми, прикрасити дім. Їх писали для того, щоб домівки, родини, сім‘ї освячувалися присутністю того, хто зображений на іконі. Це своєрідне запрошення святого в наше життя. Такий собі своєрідний акт визнання своїх пріоритетів у житті. Засвідчення того, що в цій родині є на першому місці. Звичайно, люди не завжди поводяться достойно чи праведно в своєму житті. Ми не завжди є святими, але почасту святі, зображені на іконах, завжди нагадують нам, що святість — не є щось таке, що здобувається людиною тільки після смерті. Святість доступна кожному ще в житті, бо ще за земного життя святі здобули собі свою частку в Небі.\"",
+            "p3": "На даний момент в магазині представлені колекції іконопису, але це лише початок і згодом ви зможете обрати щось із картин."
+        },
         "auth": {
             "failed": "Неправильно введені дані. Перевірте їх та повторіть спробу.",
             "throttle": "Too many login attempts. Please try again in {seconds} seconds."
         },
+        "checkout": {
+            "basket": "Кошик",
+            "contract_price": "Контрактна ціна",
+            "empty_cart": "Кошик пустий",
+            "total_amount": "Загальна вартість:",
+            "buyer_information": "Інформація про покупця",
+            "name": "Ім'я",
+            "format": "Формат",
+            "price": "Ціна",
+            "action": "Дія",
+            "phone": "Телефон",
+            "email": "Пошта",
+            "comments": "Коментарі",
+            "com_details": "(Якщо ви маєте деталі щодо замовлення, - вкажіть їх будь ласка тут)",
+            "delivery_method": "Метод доставки",
+            "make_order": "Зробити замовлення",
+            "order_title": "Дякуємо за ваше замовлення",
+            "order_text": "Наш менеджер вийде на зв'язок з вами найближчим часом"
+        },
+        "footer": {
+            "gallery": "Галереї",
+            "viber": "Viber: +380 (63) 628 66 84",
+            "email": "vadim.ikonnopis@gmail.com",
+            "contacts": "Контакти",
+            "in_touch": "Залишайтесь на зв'язку:",
+            "touch_p": "Отримуйте наші останні новини та роботи",
+            "copyrights": "Всі матеріали на даному сайті, є власністю авторського права (в тому числі дизайн). Забороняється копіювання, розповсюдження (у тому числі копіювання на інші сайти та ресурси в Інтернеті) або будь-яке інше використання інформації і об'єктів без попередньої згоди власника авторських прав.",
+            "developed_by": "Розроблено"
+        },
+        "home": {
+            "header": "Останні роботи",
+            "view": "Детальніше"
+        },
+        "icon": {
+            "currency": "грн",
+            "cart_button": "В кошик",
+            "a3_format": "A3 (297 x 420 мм)",
+            "a4_format": "A4 (210 x 297 мм)",
+            "a5_format": "A5 (148 x 210 мм)",
+            "sizes_notification": "Вам слід обрати одн з розмірів",
+            "custom_size": "Власний розмір",
+            "size_selection": "Виберіть розмір ікони",
+            "to_cart": "В кошик",
+            "added": "Додано",
+            "textarea_placeholder": "Вкажіть деталі щодо замовлення"
+        },
         "navigation": {
-            "make_order": "Зробити Замовлення",
-            "gallery": "Гале44рея",
-            "about": "Про 55 мене",
-            "personal_account": "Особистий Кабінет",
-            "contacts": "Контакти"
+            "gallery": "Галереї",
+            "about": "Про автора",
+            "payment_delivery": "Оплата і доставка",
+            "cart": "Кошик",
+            "checkout": "Оформити замовлення"
+        },
+        "shipping": {
+            "header": "Оплата і доставка",
+            "p1": "Доставка здійснюється по всій території України",
+            "p2": "Доставка здійснюється за допомогою послуг Нової Пошти та Укрпошти.\nВ разі обрання послуг Нової пошта доставка здійснюється протягом 1-3 днів.\n",
+            "p3": "Приблизна вартість доставки складає від 50 грн.",
+            "p4": "Ви можете оплатити замовлення через карту приват банку або накладним платежем."
         },
         "validation": {
             "accepted": "The {attribute} must be accepted.",

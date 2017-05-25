@@ -12,7 +12,7 @@
 
                 <div class="caption">
 
-                    <h3 class="text-center"> {{ icon.title || 'some long name goes here bla and St. Anna\'s Icons'}} </h3>
+                <h3 class="text-center"> {{ icon.title || 'Icon title'}} </h3>
 
                     <div class="item-actions">
 
