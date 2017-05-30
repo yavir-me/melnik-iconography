@@ -109,7 +109,6 @@
         ],
 
         mounted() {
-            console.log(this.storage);
         },
 
         computed: {

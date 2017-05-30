@@ -27,7 +27,7 @@ Route::group(['middleware' => ['web']], function () {
     // ADMIN PART
     Route::get('/artisan', 'Artisan\SessionsController@create')->name('artisan');
     Route::post('/artisan', 'Artisan\SessionsController@store');
-    Route::delete('/logout', 'Artisan\SessionsController@destroy');
+    Route::get('/logout', 'Artisan\SessionsController@destroy');
 
     Route::get('/dashboard', 'Artisan\DashboardController@show')->name('dashboard');
 

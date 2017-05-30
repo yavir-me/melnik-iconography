@@ -62,7 +62,6 @@
         ],
 
         mounted() {
-            console.log(this.lang);
         },
 
         data: () => ({

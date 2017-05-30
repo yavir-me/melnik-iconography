@@ -69,7 +69,6 @@
         getLastIcons() {
             axios.get(`/get-last-icons/${this.langs[this.curLang].id}`)
             .then(lastIcons => {
-                console.log(this.langs[this.curLang].id);
                 this.lastIcons = lastIcons.data;
             });
         },

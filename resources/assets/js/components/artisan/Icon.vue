@@ -59,7 +59,6 @@
     }),
 
     mounted() {
-      console.log('bla');
     },
 
     computed: {

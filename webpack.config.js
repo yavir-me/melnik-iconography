@@ -31,6 +31,17 @@ let webpackPlugins = require('laravel-mix').plugins;
 
  module.exports.context = Mix.Paths.root();
 
+ // turn on production mode
+ module.exports = {
+  plugins: [
+  new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+    }
+})
+  ]
+}
+
 
 
 /*

@@ -54,6 +54,11 @@ a {
     background: $google;
 }
 
+.navbar-default .navbar-toggle {
+    border: none;
+    color: white;
+}
+
 nav .dropdown-menu>li>a {
     color: white;
     font-size: 16px;

@@ -39,12 +39,12 @@ class OrdersOrderIconsForeignKeys extends Migration
      */
     public function down()
     {
-        Schema::table('icons', function (Blueprint $table) {
+        Schema::table('orders_icons', function (Blueprint $table) {
             $table->dropForeign('orders_icons_order_id_foreign');
-        }); 
+        });
 
-        Schema::table('icons', function (Blueprint $table) {
+        Schema::table('orders_icons', function (Blueprint $table) {
             $table->dropForeign('orders_icons_icon_id_foreign');
-        }); 
+        });
     }
 }

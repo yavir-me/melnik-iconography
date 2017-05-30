@@ -45,7 +45,12 @@ class HomeController extends Controller
 
     public function getMeta()
     {
-        $lang = $_COOKIE['lang'];
+        if (isset($_COOKIE['lang'])) {
+            $lang = $_COOKIE['lang'];
+        } else {
+            $lang = 'ru';
+        }
+
         $metaTags = [
         'ua' => [
         'description' => 'Продаж ікон на замовлення. Авторські ікони Ісуса Христа, Богородиці, імені, вінчальні пари, сучасні',

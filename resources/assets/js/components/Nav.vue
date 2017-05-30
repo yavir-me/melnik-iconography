@@ -3,11 +3,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+          <button type="button" class="navbar-toggle collapsed glyphicon glyphicon-menu-hamburger" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         </button>
         <a class="navbar-brand" href="/">
             <img src="/img/logo.png" alt="">
@@ -107,12 +103,10 @@ showPopover: false,
 curLang: ''
 }),
 
-    mounted() {
-
+    created: function() {
         this.defineLang();
         this.getGalleries();
         this.updateCartCounter();
-
     },
 
     methods: {

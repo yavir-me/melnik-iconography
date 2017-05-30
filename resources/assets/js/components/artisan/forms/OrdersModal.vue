@@ -69,7 +69,6 @@
 
         watch: {
             order: function (value) {
-                console.log(value);
             }
         },
 

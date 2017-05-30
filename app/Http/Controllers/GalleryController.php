@@ -61,7 +61,12 @@ class GalleryController extends Controller
 
     public function getLangId()
     {
-        $lang = $_COOKIE['lang'];
+
+        if (isset($_COOKIE['lang'])) {
+            $lang = $_COOKIE['lang'];
+        } else {
+            $lang = 'ru';
+        }
 
         $langs = [
         'ua' => 1,
